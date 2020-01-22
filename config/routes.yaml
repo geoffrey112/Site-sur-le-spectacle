@@ -70,7 +70,7 @@ admin_cinema:
 
 admin_ecrits:
   path: /admin/ecrits
-  controller: App\Controller\HomeController:adminEcrits
+  controller: App\Controller\AdminController:adminEcrits
 
 admin_enseignements:
   path: /admin/enseignements
@@ -112,7 +112,7 @@ admin_update_cinema:
 
 admin_update_ecrits:
   path: /admin/ecrits/update
-  controller: App\Controller\HomeController:updateEcrits
+  controller: App\Controller\AdminController:updateEcrits
 
 admin_update_enseignements:
   path: /admin/enseignements/update
@@ -154,7 +154,7 @@ admin_delete_cinema:
 
 admin_update_ecrits:
   path: /admin/ecrits/update
-  controller: App\Controller\HomeController:updateEcrits
+  controller: App\Controller\AdminController:updateEcrits
 
 admin_delete_enseignements:
   path: /admin/enseignements/delete
