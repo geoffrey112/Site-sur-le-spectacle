@@ -134,11 +134,11 @@ admin_update_sculptures:
   path: /admin/sculptures/update
   controller: App\Controller\AdminController:updateSculptures
 
+admin_update_theatre:
+  path: /admin/theatre/update
+  controller: App\Controller\AdminController:updateTheatre
 
 
-admin_delete_theatre:
-  path: /admin/theatre/delete
-  controller: App\Controller\AdminController:deleteTheatre
 
 admin_delete_adaptation_cinema:
   path: /admin/adaptation-cinema/delete
@@ -175,3 +175,7 @@ admin_delete_peinture:
 admin_delete_sculptures:
   path: /admin/sculptures/delete
   controller: App\Controller\AdminController:deleteSculptures
+
+admin_delete_theatre:
+  path: /admin/theatre/delete
+  controller: App\Controller\AdminController:deleteTheatre
