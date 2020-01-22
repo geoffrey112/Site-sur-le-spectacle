@@ -152,9 +152,9 @@ admin_delete_cinema:
   path: /admin/cinema/delete
   controller: App\Controller\AdminController:deleteCinema
 
-admin_update_ecrits:
+admin_delete_ecrits:
   path: /admin/ecrits/update
-  controller: App\Controller\AdminController:updateEcrits
+  controller: App\Controller\AdminController:deleteEcrits
 
 admin_delete_enseignements:
   path: /admin/enseignements/delete
@@ -175,7 +175,3 @@ admin_delete_peinture:
 admin_delete_sculptures:
   path: /admin/sculptures/delete
   controller: App\Controller\AdminController:deleteSculptures
-
-admin_delete_theatre:
-  path: /admin/theatre/delete
-  controller: App\Controller\AdminController:deleteTheatre
