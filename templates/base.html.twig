@@ -3,12 +3,17 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{asset ("style/home.style.css")}}">
         <title>{% block title %}Patrick DAY{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
 
-        {% block body %}{% endblock %}
+        {% include "header.html.twig" %} {# Tête de page #}
+
+        {% block body %}{% endblock %} {# Contenu variable par page#}
+
+        {% include "footer.html.twig" %} {# Pied de page #}
 
         {% block javascripts %}{% endblock %}
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
