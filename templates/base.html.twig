@@ -9,11 +9,11 @@
     </head>
     <body>
 
-        {% include "header.html.twig" %} {# Tête de page #}
+        {% include "components/header.html.twig" %} {# Tête de page #}
 
         {% block body %}{% endblock %} {# Contenu variable par page#}
 
-        {% include "footer.html.twig" %} {# Pied de page #}
+        {% include "components/footer.html.twig" %} {# Pied de page #}
 
         {% block javascripts %}{% endblock %}
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
