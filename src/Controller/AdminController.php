@@ -95,7 +95,7 @@ class AdminController extends AbstractController
 
 
 
-    public function createArticle(Request $request){
+    public function createArticle(){
         $article = new Article();
         $formArticle = $this->createForm(ArticleForm::class, $article);
 
