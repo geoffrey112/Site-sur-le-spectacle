@@ -23,7 +23,7 @@ class AdminController extends AbstractController
         $this->categoryRepo = $categoryRepository;
     }
 
-    public function admin_Home(Request $request){
+    public function admin_Home(){
        
         $article = $this->articleRepo->findAll();
         $category =$this->categoryRepo->findAll();
