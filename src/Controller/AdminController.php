@@ -10,6 +10,9 @@ use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
+use Symfony\Component\String\Slugger\AsciiSlugger;
+use Symfony\Component\HttpFoundation\Request;
+
 
 
 class AdminController extends AbstractController
@@ -96,6 +99,7 @@ class AdminController extends AbstractController
 
 
     public function createArticle(Request $request){
+        $slugger = new AsciiSlugger();
         $article = new Article();
         $formArticle = $this->createForm(ArticleForm::class, $article);
 
@@ -103,6 +107,17 @@ class AdminController extends AbstractController
 
         if ($formArticle->isSubmitted()) {
             $article = $formArticle->getData();
+            $actualTitle = $article->getTitle();
+            $slug = strtolower($slugger->slug($actualTitle));
+            $article->setSlug($slug);
+
+            $photo = $form['photo']->getData();
+            if($photo){
+                $originalFileName = pathinfo($photo->getClientOriginalName(), PATHINFO_FILENAME);
+                $newUniqueFileName = $originalFileName."-".uniqid().'.'.$photo->guessExtension();
+                $photo->move($this->getParameter('uploaded-images'), $newUniqueFileName);
+                $article->setPhoto($newUniqueFileName);
+            }
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($annonce);
@@ -111,8 +126,27 @@ class AdminController extends AbstractController
             return $this->redirectToRoute("admin_home");
         }
         return $this->render("admin/create_article.html.twig", [
-            "articleForm" => $formArticle->createView()     
+            "articleForm" => $form->createView()     
         ]);
+    }
+
+
+
+    public function createCategory(Request $request)
+    {
+        $category = new Category();
+        $form = $this->createForm(CategoryForm::class, $category);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()){
+            $category = $form->getData();
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($category);
+            $entityManager->flush();
+            return $this->redirectToRoute("admin_home");
+        }
+        return $this->render("admin/create_category.html.twig", ["categoryForm" => $form->createView()]);
     }
 
 
