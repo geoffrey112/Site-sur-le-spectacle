@@ -1,0 +1,25 @@
+.contenu{
+    height:400px;
+    width:65%;
+    margin:0 auto;
+}
+
+.carousel-control-next-icon{
+    background-color:black;
+}
+
+.carousel-control-prev-icon{
+    background-color:black;
+}
+
+
+/* Effet précédent/suivant */
+.carousel-control-prev:hover{
+    background: linear-gradient(to left, rgba(99, 178, 207, 0.700), rgba(0, 128, 255, 0.700));
+    transition-duration: 1s;
+}
+
+.carousel-control-next:hover{
+    background: linear-gradient(to right, rgba(99, 178, 207, 0.700), rgba(0, 128, 255, 0.700));
+    transition-duration: 1s;
+}
