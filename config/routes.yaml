@@ -6,10 +6,6 @@ home:
   path: /
   controller: App\Controller\HomeController::home
 
-fomrmulaire:
-  path: /formulaire-de-contact
-  controller: App\Controller\FormController::formulaire
-
 adaptation_cinema:
   path: /adaptation-cinema
   controller: App\Controller\HomeController::adaptationCinema
@@ -52,51 +48,9 @@ theatre:
 
 
 
-admin_home:
+admin_dashboard:
   path: /admin-home
-  controller: App\Controller\AdminController::adminHome
-
-admin_adaptation_cinema:
-  path: /admin/adaptation-cinema
-  controller: App\Controller\AdminController::adminAdaptationCinema
-
-admin_bande_dessinee:
-  path: /admin/bande-dessinee
-  controller: App\Controller\AdminController::adminBandeDessinee
-
-admin_cinema:
-  path: /admin/cinema
-  controller: App\Controller\AdminController::adminCinema
-
-admin_ecrits:
-  path: /admin/ecrits
-  controller: App\Controller\AdminController::adminEcrits
-
-admin_enseignements:
-  path: /admin/enseignements
-  controller: App\Controller\AdminController::adminEnseignement
-
-admin_livres_objets:
-  path: /admin/livres-objets
-  controller: App\Controller\AdminController::adminLivresObjets
-
-admin_mise_en_scene:
-  path: /admin/mise-en-scene
-  controller: App\Controller\AdminController::adminMiseEnScene
-
-admin_peinture:
-  path: /admin/peinture
-  controller: App\Controller\AdminController::adminPeinture
-
-admin_sculptures:
-  path: /admin/sculptures
-  controller: App\Controller\AdminController::adminSculptures
-
-admin_theatre:
-  path: /admin/theatre
-  controller: App\Controller\AdminController::adminTheatre
-
-
+  controller: App\Controller\AdminController::adminDashboard
 
 
 update_article:
@@ -114,7 +68,5 @@ create_article:
   controller: App\Controller\AdminController::createArticle
 
 
-create_category:
-  path: /admin/category/create
-  controller: App\Controller\AdminController::createCategory
+
 
