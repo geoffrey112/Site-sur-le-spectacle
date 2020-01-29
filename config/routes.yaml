@@ -149,3 +149,8 @@ create_article:
   path: /admin/article/create
   controller: App\Controller\AdminController::createArticle
 
+
+create_category:
+  path: /admin/category/create
+  controller: App\Controller\AdminController::createCategory
+

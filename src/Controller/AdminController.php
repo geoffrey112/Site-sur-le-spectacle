@@ -30,7 +30,7 @@ class AdminController extends AbstractController
        
         $article = $this->articleRepo->findAll();
         $category =$this->categoryRepo->findAll();
-         return $this->render("admin/admin_home.html.twig", [ "articles" => $articles, "categories" => $categories]);    
+         return $this->render("admin/admin_home.html.twig", [ "articles" => $article, "categories" => $category]);    
     }
 
     public function adminBandeDessinee(){
@@ -101,7 +101,7 @@ class AdminController extends AbstractController
     public function createArticle(Request $request){
         $slugger = new AsciiSlugger();
         $article = new Article();
-        $formArticle = $this->createForm(ArticleForm::class, $article);
+        $formArticle = $this->createForm(ArticleFormType::class, $article);
 
         $formAnnonce->handleRequest($request);
 
@@ -135,7 +135,7 @@ class AdminController extends AbstractController
     public function createCategory(Request $request)
     {
         $category = new Category();
-        $form = $this->createForm(CategoryForm::class, $category);
+        $form = $this->createForm(CategoryFormType::class, $category);
 
         $form->handleRequest($request);
 
