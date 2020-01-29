@@ -98,46 +98,10 @@ admin_theatre:
 
 
 
-update_adaptation_cinema:
-  path: /admin/adaptation-cinema/update
-  controller: App\Controller\AdminController::updateAdaptationCinema
 
-update_bande_dessinee:
-  path: /admin/bande-dessinee/update
-  controller: App\Controller\AdminController::updateBandeDessinee
-
-admin_update_cinema:
-  path: /admin/cinema/update
-  controller: App\Controller\AdminController::updateCinema
-
-update_ecrits:
-  path: /admin/ecrits/update
-  controller: App\Controller\AdminController::updateEcrits
-
-update_enseignements:
-  path: /admin/enseignements/update
-  controller: App\Controller\AdminController::updateEnseignements
-
-update_livres_objets:
-  path: /admin/livres-objets/update
-  controller: App\Controller\AdminController::updateLivresObjets
-
-upadate_mise_en_scene:
-  path: /admin/mise-en-scene/update
-  controller: App\Controller\AdminController::updateMiseEnScene
-
-update_peinture:
-  path: /admin/peinture/update
-  controller: App\Controller\AdminController::updatePeinture
-
-update_sculptures:
-  path: /admin/sculptures/update
-  controller: App\Controller\AdminController::updateSculptures
-
-update_theatre:
-  path: /admin/theatre/update
-  controller: App\Controller\AdminController::updateTheatre
-
+update_article:
+  path: /admin/article/update
+  controller: App\Controller\AdminController::updateArticle
 
 
 delete_article:
