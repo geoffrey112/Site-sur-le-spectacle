@@ -49,7 +49,7 @@ theatre:
 
 
 admin_dashboard:
-  path: /admin-home
+  path: /admin-dashboard
   controller: App\Controller\AdminController::adminDashboard
 
 
