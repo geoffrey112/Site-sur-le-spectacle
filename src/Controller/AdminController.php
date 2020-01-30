@@ -78,7 +78,6 @@ class AdminController extends AbstractController
     }
 
 
-
     // public function updateArticle(Request $request, $id)
     // {
     //     $slugger = new AsciiSlugger();
