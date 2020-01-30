@@ -12,4 +12,9 @@ class HomeController extends AbstractController
     {
         return $this->render('home.html.twig');
     }
+
+    public function cinema()
+    {
+        return $this->render('pages/cinema.html.twig');
+    }
 }

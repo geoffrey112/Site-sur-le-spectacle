@@ -1,0 +1,49 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{asset('styles/cinema.style.css')}}">
+	<style>
+		body {
+			background-image: url("{{asset('images/fond_noir.png')}}");
+			background-size: cover;
+		}
+	</style>
+{% endblock %}
+
+{% block body %}
+
+<h1 class="title">Cinéma</h1>
+
+<video controls>
+
+	<source src="{{asset('videos/WBZE.mp4')}}" type="video/mp4">
+
+</video>
+
+{# {% for article in articles %}
+	{% if category.name == 'cinema' %} #}
+		<div class="row ">
+			<div class="col-4"></div>
+			<div class="col-4">
+				<div class="card" style="width: 22rem;">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+					</div>
+					<img src="{{asset('images/index.jpeg')}}" class="card-img-top" alt="...">
+				</div>
+			</div>
+            <div class="col-4">
+				<div class="card" style="width: 22rem;">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+					</div>
+					<img src="{{asset('images/index.jpeg')}}" class="card-img-top" alt="...">
+				</div>
+			</div>
+		</div>
+	</div>
+{# {% endif %}
+
+{% endfor %} #}
+
+{% endblock %}
