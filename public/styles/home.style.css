@@ -1,3 +1,38 @@
-h2{
-    color:red;
+body{
+    background-color:rgba(212, 245, 255);
+    font-family: 'Merriweather', serif;
+}
+
+.fondBlanc{
+    width:100%;
+    background-color:white;
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
+.contenu{
+    height:300px;
+    width:55%;
+    margin:0 auto;
+    background-color:white;
+}
+
+.carousel-control-next-icon{
+    background-color:rgba(0, 0, 0, 0.700);
+}
+
+.carousel-control-prev-icon{
+    background-color:rgba(0, 0, 0, 0.700);
+}
+
+
+/* Effet précédent/suivant */
+.carousel-control-prev:hover{
+    background: linear-gradient(to left, rgba(99, 178, 207, 0.700), rgba(0, 128, 255, 0.700));
+    transition-duration: 1.5s;
+}
+
+.carousel-control-next:hover{
+    background: linear-gradient(to right, rgba(99, 178, 207, 0.700), rgba(0, 128, 255, 0.700));
+    transition-duration: 1.5s;
 }

@@ -1,0 +1,32 @@
+.contentSidebar{
+    text-align:center;
+    color:white;
+}
+
+.sidebarTop{
+    background: linear-gradient(rgb(156, 211, 255), rgb(83, 178, 255));
+    border-radius: 10px 10px 10px 20px;
+    box-shadow: -8px 8px 5px #2b2417af;
+}
+
+.sidebarElement{
+    background-color:#2b2417;
+    width:70%;
+    margin:0 auto;
+}
+
+.pages{
+    color:white;
+}
+
+.pages:hover{
+    text-decoration:none;
+    color:#007FFF;
+}
+
+.sidebarBottom{
+    background: linear-gradient(rgb(156, 211, 255), rgb(83, 178, 255));
+    border-radius: 10px 10px 10px 20px;
+    box-shadow: -8px 8px 5px #2b2417af;
+    color:black !important;
+}
