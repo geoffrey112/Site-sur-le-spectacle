@@ -1,0 +1,15 @@
+.contentSidebar{
+    text-align:center;
+    color:white;
+}
+
+.sidebarTop{
+    background-color:rgb(88, 180, 255);
+    border-radius: 10px 10px 10px 20px;
+}
+
+.sidebarElement{
+    background-color:#2b2417;
+    width:70%;
+    margin:0 auto;
+}
