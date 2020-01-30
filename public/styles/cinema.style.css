@@ -3,8 +3,17 @@
     color:#007FFF;
     font-size:48px;
     margin-bottom: 100px;
+    margin-top: 30px;
 }
 
 video{
-    display:block;width:600px;margin:0 auto 35px auto;
+    width: 800px;
+}
+
+.vid{
+    padding-left: 220px;
+}
+
+.form{
+    margin-left: 290px;
 }

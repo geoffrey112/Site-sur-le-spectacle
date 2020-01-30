@@ -12,38 +12,55 @@
 
 {% block body %}
 
-<h1 class="title">Cinéma</h1>
+	<h1 class="title">Cinéma</h1>
 
-<video controls>
+	<div class="row">
+		<div class="col-3">
+			{% include "components/sidebar.html.twig" %}
+		</div>
+		<div class="col-9 vid">
+			<video controls>
 
-	<source src="{{asset('videos/WBZE.mp4')}}" type="video/mp4">
+				<source src="{{asset('videos/WBZE.mp4')}}" type="video/mp4">
 
-</video>
+			</video>
+		</div>
+	</div>
 
-{# {% for article in articles %}
-	{% if category.name == 'cinema' %} #}
-		<div class="row ">
-			<div class="col-4"></div>
-			<div class="col-4">
-				<div class="card" style="width: 22rem;">
+
+	<div class="container">
+		{# {% for article in articles %}
+			{% if category.name == 'cinema' %} #}
+		<div class="row form">
+				<div class="card mr-5 mb-5" style="width: 22rem;">
 					<div class="card-body">
 						<h5 class="card-title">Card title</h5>
 					</div>
 					<img src="{{asset('images/index.jpeg')}}" class="card-img-top" alt="...">
 				</div>
-			</div>
-            <div class="col-4">
-				<div class="card" style="width: 22rem;">
+				<div class="card mr-5 mb-5" style="width: 22rem;">
 					<div class="card-body">
 						<h5 class="card-title">Card title</h5>
 					</div>
 					<img src="{{asset('images/index.jpeg')}}" class="card-img-top" alt="...">
 				</div>
+				<div class="card mr-5 mb-5" style="width: 22rem;">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+					</div>
+					<img src="{{asset('images/index.jpeg')}}" class="card-img-top" alt="...">
+				</div>
+				<div class="card mr-5 mb-5" style="width: 22rem;">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+					</div>
+					<img src="{{asset('images/index.jpeg')}}" class="card-img-top" alt="...">
+				</div>
+			
 			</div>
 		</div>
 	</div>
-{# {% endif %}
-
-{% endfor %} #}
+		{# {% endif %}
+			{% endfor %} #}
 
 {% endblock %}
