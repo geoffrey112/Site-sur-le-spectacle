@@ -15,6 +15,15 @@
     margin:0 auto;
 }
 
+.pages{
+    color:white;
+}
+
+.pages:hover{
+    text-decoration:none;
+    color:#007FFF;
+}
+
 .sidebarBottom{
     background: linear-gradient(rgb(156, 211, 255), rgb(83, 178, 255));
     border-radius: 10px 10px 10px 20px;
