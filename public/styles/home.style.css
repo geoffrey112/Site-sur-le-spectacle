@@ -48,12 +48,34 @@ body{
     font-weight: bold;
     text-align:center;
     background-color:#63B2CF;
-    border-radius: 10px 10px 10px 10px;
-    width:25%;
-    margin:0 auto; 
-    
+    border-radius: 15px 15px 15px 15px;
+    width:70%;
+    height:60px;
+    margin:0 auto;
+    color:white;
+    padding-top:15px;
 }
 
 .contentText p{
     line-height:40px;
 }
+
+.contentRea{
+    border:1px solid black;
+    border-radius: 15px 15px 15px 15px;
+    width:60%;
+}
+
+.contentRea h1{
+    font-size:25px;
+    font-weight: bold;
+    text-align:center;
+    background-color:#63B2CF;
+    border-radius: 15px 15px 15px 15px;
+    width:80%;
+    height:60px;
+    margin:0 auto;
+    color:white;
+    padding-top:15px;
+}
+
