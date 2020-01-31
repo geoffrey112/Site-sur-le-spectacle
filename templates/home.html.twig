@@ -59,7 +59,38 @@
     </div>
 
 
+    <div class="container">
+        {{ form_start(contactForm) }}
+        <div class="form-group mt-5">
+            <div class="row">
+                <div class="col-4 mb-4">
+                    {{ form_row(contactForm.email, {'attr': {class : "form-control"}}) }}
+                </div>
+            </div>
+             <div class="row">
+                <div class="col-4 mb-4">
+                    {{ form_row(contactForm.idee, {'attr': {class : "form-control"}}) }}
+                </div>
+            </div>
+             <div class="row">
+                <div class="col-6 mb-4">
+                    {{ form_row(contactForm.message, {'attr': {class : "form-control"}}) }}
+                </div>
+            </div>
+            <div class="row">
+                    {{ form_row(contactForm.envoyer, {'attr' : {class : "btn btn-primary"}}) }}
+            </div>
+        </div>
+        {{ form_widget(contactForm) }}
+        {{ form_end(contactForm) }}
+</div>
 
-    {# {% include "components/footer.html.twig" %} #}
+
+
+
+
+
+
+    
 
 {% endblock %}
