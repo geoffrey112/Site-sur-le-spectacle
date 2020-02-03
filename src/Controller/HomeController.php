@@ -70,7 +70,7 @@ class HomeController extends AbstractController
 
 
 
-    public function home(Request $request, MailerInterface $mailer){
+    public function home(Request $request, \Swift_Mailer $mailer){
 
         $form = $this->createFormBuilder() 
             ->add('email', EmailType::class)
@@ -85,13 +85,21 @@ class HomeController extends AbstractController
 
             $contact = $form->getData();
 
-            $message = (new Email())
-                ->from($contact['email'])
-                ->to('florian67@neuf.fr')
-                ->subject($contact['idee'])
-                ->text($contact['message']);
+            $message = (new \Swift_Message())
+                ->setFrom($contact['email'])
+                ->setTo('florian67@neuf.fr')
+                ->setSubject($contact['idee'])
+                ->setBody($contact['message']);
 
-            $this->mailer->send($message);
+            $mailer->send($message);
+
+            // $message = (new Email())
+            //     ->from($contact['email'])
+            //     ->to('florian67@neuf.fr')
+            //     ->subject($contact['idee'])
+            //     ->text($contact['message']);
+
+            // $this->mailer->send($message);
 
             $this->addFlash('success', 'Votre message a bien été envoyé !');
     
