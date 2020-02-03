@@ -1,6 +1,6 @@
 .title{
     text-align: center;
-    color:#007FFF;
+    color:orange;
     font-size:48px;
     margin-bottom: 100px;
     margin-top: 30px;
@@ -16,4 +16,8 @@ video{
 
 .form{
     margin-left: 290px;
+}
+
+body{
+    background-color: gray;
 }
