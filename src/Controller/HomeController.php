@@ -13,16 +13,17 @@ class HomeController extends AbstractController
         return $this->render('home.html.twig');
     }
 
+    public function cinema()
+    {
+        return $this->render('pages/cinema.html.twig');
+    }
+
     public function adaptationCinema(){
         return $this->render('pages/adaptation_cinema.html.twig');
     }
 
     public function bandeDessinee(){
         return $this->render('pages/bande_dessinee.html.twig');
-    }
-
-    public function cinema(){
-        return $this->render('pages/cinema.html.twig');
     }
 
     public function ecrits(){
