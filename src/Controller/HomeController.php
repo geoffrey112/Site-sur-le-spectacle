@@ -2,15 +2,15 @@
 
 namespace App\Controller;
 
-// use App\Form\ContactFormType;
+
 
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-
-use Symfony\Bundle\SwiftmailerBundle\Command\SendEmailCommand ; 
+use Symfony\Component\Mailer\MailerInterface ;
+use Symfony\Component\Mime\Email;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -21,7 +21,12 @@ use Symfony\Component\HttpFoundation\Request;
 class HomeController extends AbstractController
 {
 
-   
+    private $mailer ;
+
+    public function __construct ( MailerInterface $mailer )
+    {
+        $this -> mailer = $mailer ;
+    }
 
     public function adaptationCinema(){
         return $this->render('pages/adaptation_cinema.html.twig');
@@ -65,7 +70,7 @@ class HomeController extends AbstractController
 
 
 
-    public function home(Request $request){
+    public function home(Request $request, MailerInterface $mailer){
 
         $form = $this->createFormBuilder() 
             ->add('email', EmailType::class)
@@ -77,26 +82,22 @@ class HomeController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $contact = $form->getData();
-            $this->sendMail($contact);
+
+            $message = (new Email())
+                ->from($contact['email'])
+                ->to('florian67@neuf.fr')
+                ->subject($contact['idee'])
+                ->text($contact['message']);
+
+            $this->mailer->send($message);
+
             $this->addFlash('success', 'Votre message a bien été envoyé !');
     
         }
     
         return $this->render('home.html.twig', ['contactForm' => $form->createView()]);
     }
-
-    public function sendMail($contact) {
-
-        $email = \Swift_Message::con()
-            ->setSubject($contact)
-            ->setFrom('exemple@free.fr')
-            ->setTo('florian67@neuf.fr')
-            ->setBody($contact);
-
-            $this->get('mail')->send($email);
-    }
-
-    
-    
+       
 }
