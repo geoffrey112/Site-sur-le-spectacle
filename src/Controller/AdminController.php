@@ -32,12 +32,12 @@ class AdminController extends AbstractController
         $this->userRepo = $userRepository;
     }
 
-    public function adminDashboard(){
-       
-        $article = $this->articleRepo->findAll();
+    public function dashboardAction(){
+
+        /*$article = $this->articleRepo->findAll();
         $category =$this->categoryRepo->findAll();
-        $user =$this->userRepo->findAll();
-         return $this->render("admin/admin_home.html.twig", [ "articles" => $article, "categories" => $category, "users" =>$user]);    
+        $user =$this->userRepo->findAll();*/
+         return $this->render("dashboard/dashboard_home.html.twig");
     }
 
 
