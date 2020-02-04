@@ -1,0 +1,62 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{asset('styles/cinema.style.css')}}">
+	<style>
+		body {
+			background-image: url("{{asset('images/fond_noir.png')}}");
+			background-size: cover;
+		}
+	</style>
+{% endblock %}
+
+{% block body %}
+
+	{% include "components/ResponsiveNav.html.twig" %}
+
+	<h1 class="title">Écrits</h1>
+
+	<div class="row">
+		<div class="col-3">
+			{% include "components/sidebar.html.twig" %}
+		</div>
+
+		<div class='container'>
+			<div class="row">
+
+				{# {% for article in articles %}
+					{% if category.name == 'ecrits' %} #}
+				
+					<div class="card mr-5 mb-5 " style="width: 22rem;">
+						<div class="card-body">
+							<h5 class="card-title">Card title</h5>
+						</div>
+						<img src="{{asset('images/index.jpeg')}}" class="card-img-top" alt="...">
+					</div>
+					<div class="card mr-5 mb-5 " style="width: 22rem;">
+						<div class="card-body">
+							<h5 class="card-title">Card title</h5>
+						</div>
+						<img src="{{asset('images/index.jpeg')}}" class="card-img-top" alt="...">
+					</div>		
+					<div class="card mr-5 mb-5 " style="width: 22rem;">
+						<div class="card-body">
+							<h5 class="card-title">Card title</h5>
+						</div>
+						<img src="{{asset('images/index.jpeg')}}" class="card-img-top" alt="...">
+					</div>	
+					<div class="card mr-5 mb-5 " style="width: 22rem;">
+						<div class="card-body">
+							<h5 class="card-title">Card title</h5>
+						</div>
+						<img src="{{asset('images/index.jpeg')}}" class="card-img-top" alt="...">
+					</div>		
+
+				{# {% endif %}
+					{% endfor %} #}
+					
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
