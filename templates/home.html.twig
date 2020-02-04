@@ -69,15 +69,53 @@
             </div>
         </div>
     </div>
-
-
-    {# REALISATIONS #}
+    
+    
+    
+     {# REALISATIONS #}
     <div class="container mt-5 contentRea">
         <div class="row">
             <h1 class="mt-4">Réalisations</h1>
             <img class="mt-5 mb-4 mx-auto" src="{{ asset ("medias/PUELLA (2).jpg")}}">
         </div>
     </div>
+
+
+ form-contact
+    <div class="container">
+        {{ form_start(contactForm) }}
+        <div class="form-group mt-5">
+            <div class="row">
+                <div class="col-4 mb-4">
+                    {{ form_row(contactForm.email, {'attr': {class : "form-control"}}) }}
+                </div>
+            </div>
+             <div class="row">
+                <div class="col-4 mb-4">
+                    {{ form_row(contactForm.idee, {'attr': {class : "form-control"}}) }}
+                </div>
+            </div>
+             <div class="row">
+                <div class="col-6 mb-4">
+                    {{ form_row(contactForm.message, {'attr': {class : "form-control"}}) }}
+                </div>
+            </div>
+            <div class="row">
+                    {{ form_row(contactForm.envoyer, {'attr' : {class : "btn btn-primary"}}) }}
+            </div>
+        </div>
+        {{ form_end(contactForm) }}
+</div>
+
+
+
+
+
+
+
+    
+   
+
 
 
 {% endblock %}
