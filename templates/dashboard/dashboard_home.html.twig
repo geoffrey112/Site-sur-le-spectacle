@@ -1,0 +1,40 @@
+{% extends "dashboard/dashboard_base.html.twig" %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="upc">Liste des articles</h1>
+    </div>
+
+    <table class="table container mt-5">
+        <thead>
+        <tr>
+            <th>Titre</th>
+            <th>Categorie</th>
+            <th>Créé le</th>
+            <th>Modifier</th>
+        </tr>
+        </thead>
+
+
+
+        <tbody>
+
+        {#{% for article in app.user.articles %}#}
+
+            <tr>
+                <td>aaa{#{{ article.country.name }}#}</td>
+                <td>aaa{#{{ article.title }}#}</td>
+                <td>aaa{#{{ article.category.name }}#}</td>
+                <td>aaa{#{{ article.tags }}#}</td>
+                <td>aaa{#{{ article.createdAt | date("d-m-Y") }}#}</td>
+                <td>aaa{#<a href="{{ path('update_article', {id: article.id}) }}" id="lien"><img src="{{asset("medias/images/edit.svg")}}" height="20px" alt="Icone modifier"></a>#}</td>
+            </tr>
+
+        {#{% endfor %}#}
+
+        </tbody>
+
+    </table>
+{% endblock %}
+
+
