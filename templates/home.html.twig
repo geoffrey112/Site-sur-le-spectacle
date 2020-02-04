@@ -49,35 +49,37 @@
 		</div>
 	</div>
 
-	{# SIDEBAR + PRESENTATION #}
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-3">
-				{% include "components/sidebar.html.twig" %}
-			</div>
-			<div class="col-9">
-				<div class="container contentText mt-4">
-					<h1 class="mt-5 mb-4">Présentation</h1>
-					<p class="mb-5">Après un enseignement prodigué au Conservatoire d’Art Dramatique de Nancy et des études d’histoire de l’Art, 
-									Patrick Day a été formé à l’écriture de scénario et la mise-en-scène. L’éventail de ses activités lui a permis de 
-									couvrir un panel d’activités assez large : cours d’actorat (sensibilité Actor’s studio) réalisation cinéma 
-									(long métrage « Désordres » et Grand Prix du court- métrage avec « Ira-Dei ») plasticien (nombreuses expos de groupes) 
-									metteur-en-scène (plusieurs spectacles vivants de théâtre, théâtre-dansé et comédie musicale) scénarios à la demande 
-									en vidéo institutionnelle. Il poursuit ses différentes activités en mise-en-scène avec plusieurs troupes et partenaires 
-									ainsi que ses travaux de plasticien (expos de peintures et sculptures).</p>
-				</div>
-			</div>
-		</div>
-	</div>
+	   {% include "components/ResponsiveNav.html.twig" %}
 
-
-	{# REALISATIONS #}
-	<div class="container mt-5 contentRea">
-		<div class="row">
-			<h1 class="mt-4">Réalisations</h1>
-			<img class="mt-5 mb-4 mx-auto" src="{{ asset ("medias/PUELLA (2).jpg")}}">
-		</div>
-	</div>
+    {# SIDEBAR + PRESENTATION #}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3">
+                {% include "components/sidebar.html.twig" %}
+            </div>
+            <div class="col-9">
+                <div class="container contentText mt-4">
+                    <h1 class="mt-5 mb-4">Présentation</h1>
+                    <p class="mb-5">Après un enseignement prodigué au Conservatoire d’Art Dramatique de Nancy et des études d’histoire de l’Art, 
+                    Patrick Day a été formé à l’écriture de scénario et la mise-en-scène. L’éventail de ses activités lui a permis de 
+                    couvrir un panel d’activités assez large : cours d’actorat (sensibilité Actor’s studio) réalisation cinéma 
+                    (long métrage « Désordres » et Grand Prix du court- métrage avec « Ira-Dei ») plasticien (nombreuses expos de groupes) 
+                    metteur-en-scène (plusieurs spectacles vivants de théâtre, théâtre-dansé et comédie musicale) scénarios à la demande 
+                    en vidéo institutionnelle. Il poursuit ses différentes activités en mise-en-scène avec plusieurs troupes et partenaires 
+                    ainsi que ses travaux de plasticien (expos de peintures et sculptures).</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    {# REALISATIONS #}
+    <div class="container mt-5 contentRea">
+        <div class="row">
+            <h1 class="mt-4">Réalisations</h1>
+            <img class="mt-5 mb-4 mx-auto" src="{{ asset ("medias/PUELLA (2).jpg")}}">
+        </div>
+    </div>
 
 
 	<div class="form">
@@ -114,3 +116,4 @@
 	<div class="bas"></div>
 
 {% endblock %}
+

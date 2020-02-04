@@ -99,9 +99,12 @@ body{
 .contact *{
     text-align: center;
     margin: auto;
-
 }
+
 .contact{   
     background: linear-gradient(135deg, rgb(125, 199, 226) 20%, #EDFBFF 50%, rgb(125, 199, 226) 80%);
+}
+
+
 }
 

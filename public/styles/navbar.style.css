@@ -1,0 +1,21 @@
+.pageNavActive{
+    background-color:black;
+}
+
+.pageNav{
+    color:white;
+}
+
+.pageNav:hover{
+    background:linear-gradient(black, rgba(0, 0, 0, 0.089));
+}
+
+
+/* RESPONSIVE MD */
+@media (min-width:768px){
+
+    .contentNav{
+        display:none;
+    }
+
+}
