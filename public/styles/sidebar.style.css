@@ -3,16 +3,29 @@
     color:white;
 }
 
+/* HAUT DE SIDEBAR */
 .sidebarTop{
     background: linear-gradient(rgb(156, 211, 255), rgb(83, 178, 255));
     border-radius: 10px 10px 10px 20px;
     box-shadow: -8px 8px 5px #2b2417af;
+    color:white;
+    font-weight: bold;
 }
 
+/* ONGLET SIDEBAR */
 .sidebarElement{
     background-color:#2b2417;
     width:70%;
     margin:0 auto;
+}
+
+.retour{
+    color:#007FFF;
+}
+
+.retour:hover{
+    text-decoration:none;
+    color:rgb(0, 183, 255);
 }
 
 .pages{
@@ -24,9 +37,13 @@
     color:#007FFF;
 }
 
+/* BAS DE SIDEBAR */
 .sidebarBottom{
     background: linear-gradient(rgb(156, 211, 255), rgb(83, 178, 255));
     border-radius: 10px 10px 10px 20px;
     box-shadow: -8px 8px 5px #2b2417af;
-    color:black !important;
+}
+
+.fa-arrows-alt-v{
+    color:rgba(0, 0, 0, 0.863);
 }
