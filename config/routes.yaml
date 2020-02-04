@@ -6,10 +6,6 @@ home:
   path: /
   controller: App\Controller\HomeController::home
 
-fomrmulaire:
-  path: /formulaire-de-contact
-  controller: App\Controller\FormController::formulaire
-
 adaptation_cinema:
   path: /adaptation-cinema
   controller: App\Controller\HomeController::adaptationCinema
@@ -52,92 +48,14 @@ theatre:
 
 
 
-admin_home:
-  path: /admin-home
-  controller: App\Controller\AdminController::adminHome
-
-admin_adaptation_cinema:
-  path: /admin/adaptation-cinema
-  controller: App\Controller\AdminController::adminAdaptationCinema
-
-admin_bande_dessinee:
-  path: /admin/bande-dessinee
-  controller: App\Controller\AdminController::adminBandeDessinee
-
-admin_cinema:
-  path: /admin/cinema
-  controller: App\Controller\AdminController::adminCinema
-
-admin_ecrits:
-  path: /admin/ecrits
-  controller: App\Controller\AdminController::adminEcrits
-
-admin_enseignements:
-  path: /admin/enseignements
-  controller: App\Controller\AdminController::adminEnseignement
-
-admin_livres_objets:
-  path: /admin/livres-objets
-  controller: App\Controller\AdminController::adminLivresObjets
-
-admin_mise_en_scene:
-  path: /admin/mise-en-scene
-  controller: App\Controller\AdminController::adminMiseEnScene
-
-admin_peinture:
-  path: /admin/peinture
-  controller: App\Controller\AdminController::adminPeinture
-
-admin_sculptures:
-  path: /admin/sculptures
-  controller: App\Controller\AdminController::adminSculptures
-
-admin_theatre:
-  path: /admin/theatre
-  controller: App\Controller\AdminController::adminTheatre
+dashboard:
+  path: /dashboard
+  controller: App\Controller\AdminController::dashboardAction
 
 
-
-update_adaptation_cinema:
-  path: /admin/adaptation-cinema/update
-  controller: App\Controller\AdminController::updateAdaptationCinema
-
-update_bande_dessinee:
-  path: /admin/bande-dessinee/update
-  controller: App\Controller\AdminController::updateBandeDessinee
-
-admin_update_cinema:
-  path: /admin/cinema/update
-  controller: App\Controller\AdminController::updateCinema
-
-update_ecrits:
-  path: /admin/ecrits/update
-  controller: App\Controller\AdminController::updateEcrits
-
-update_enseignements:
-  path: /admin/enseignements/update
-  controller: App\Controller\AdminController::updateEnseignements
-
-update_livres_objets:
-  path: /admin/livres-objets/update
-  controller: App\Controller\AdminController::updateLivresObjets
-
-upadate_mise_en_scene:
-  path: /admin/mise-en-scene/update
-  controller: App\Controller\AdminController::updateMiseEnScene
-
-update_peinture:
-  path: /admin/peinture/update
-  controller: App\Controller\AdminController::updatePeinture
-
-update_sculptures:
-  path: /admin/sculptures/update
-  controller: App\Controller\AdminController::updateSculptures
-
-update_theatre:
-  path: /admin/theatre/update
-  controller: App\Controller\AdminController::updateTheatre
-
+update_article:
+  path: /admin/article/update
+  controller: App\Controller\AdminController::updateArticle
 
 
 delete_article:
@@ -148,4 +66,9 @@ delete_article:
 create_article:
   path: /admin/article/create
   controller: App\Controller\AdminController::createArticle
+
+
+
+
+
 

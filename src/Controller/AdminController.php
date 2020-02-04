@@ -3,128 +3,129 @@
 namespace App\Controller;
 use App\Entity\Article;
 use App\Entity\Category;
+use App\Entity\User;
 
 use App\Repository\ArticleRepository;
 use App\Repository\CategoryRepository;
+use App\Repository\UserRepository;
+
+use App\Form\CategoryFormType;
+use App\Form\ArticleFormType;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\AsciiSlugger;
+use Symfony\Component\HttpFoundation\Request;
 
 
 
 class AdminController extends AbstractController
 {
-    private $arcticleRepo;
+    private $articleRepo;
     private $categoryRepo;
+    private $userRepo;
 
-    public function __construct(ArticleRepository $articleRepository, CategoryRepository $categoryRepository)
+    public function __construct(ArticleRepository $articleRepository, CategoryRepository $categoryRepository, UserRepository $userRepository)
     {
         $this->articleRepo = $articleRepository;
         $this->categoryRepo = $categoryRepository;
+        $this->userRepo = $userRepository;
     }
 
-    public function adminHome(){
-       
-        $article = $this->articleRepo->findAll();
+    public function dashboardAction(){
+
+        /*$article = $this->articleRepo->findAll();
         $category =$this->categoryRepo->findAll();
-         return $this->render("admin/admin_home.html.twig", [ "articles" => $articles, "categories" => $categories]);    
+        $user =$this->userRepo->findAll();*/
+         return $this->render("dashboard/dashboard_home.html.twig");
     }
-
-    public function adminBandeDessinee(){
-       
-        $article = $this->articleRepo->findAll();
-        $category =$this->categoryRepo->findAll();
-         return $this->render("admin/bande_dessinee.html.twig", [ "articles" => $articles, "categories" => $categories]);    
-    }
-
-    public function adminCinema(){
-       
-        $article = $this->articleRepo->findAll();
-        $category =$this->categoryRepo->findAll();
-         return $this->render("admin/cinema.html.twig", [ "articles" => $articles, "categories" => $categories]);    
-    }
-
-    public function adminEcrits(){
-       
-        $article = $this->articleRepo->findAll();
-        $category =$this->categoryRepo->findAll();
-         return $this->render("admin/ecrits.html.twig", [ "articles" => $articles, "categories" => $categories]);    
-    }
-
-    public function adminEnseignement(){
-       
-        $article = $this->articleRepo->findAll();
-        $category =$this->categoryRepo->findAll();
-         return $this->render("admin/enseignement.html.twig", [ "articles" => $articles, "categories" => $categories]);    
-    }
-
-    public function adminLivresObjets(){
-       
-        $article = $this->articleRepo->findAll();
-        $category =$this->categoryRepo->findAll();
-         return $this->render("admin/livres_objets.html.twig", [ "articles" => $articles, "categories" => $categories]);    
-    }
-
-    public function adminMiseEnScene(){
-       
-        $article = $this->articleRepo->findAll();
-        $category =$this->categoryRepo->findAll();
-         return $this->render("admin/mise_en_scene.html.twig", [ "articles" => $articles, "categories" => $categories]);    
-    }
-
-    public function adminPeinture(){
-       
-        $article = $this->articleRepo->findAll();
-        $category =$this->categoryRepo->findAll();
-         return $this->render("admin/peinture.html.twig", [ "articles" => $articles, "categories" => $categories]);    
-    }
-
-    public function adminSculptures(){
-       
-        $article = $this->articleRepo->findAll();
-        $category =$this->categoryRepo->findAll();
-         return $this->render("admin/sculptures.html.twig", [ "articles" => $articles, "categories" => $categories]);    
-    }
-
-    public function adminTheatre(){
-       
-        $article = $this->articleRepo->findAll();
-        $category =$this->categoryRepo->findAll();
-         return $this->render("admin/theatre.html.twig", [ "articles" => $articles, "categories" => $categories]);    
-    }
-
 
 
     public function createArticle(Request $request){
+        $slugger = new AsciiSlugger();
         $article = new Article();
-        $formArticle = $this->createForm(ArticleForm::class, $article);
+        $form = $this->createForm(ArticleFormType::class, $article);
 
-        $formAnnonce->handleRequest($request);
+        $form->handleRequest($request);
 
-        if ($formArticle->isSubmitted()) {
-            $article = $formArticle->getData();
+        if ($form->isSubmitted()) {
+            $article = $form->getData();
+
+            $actualTitle = $article->getTitle();
+            $slug = strtolower($slugger->slug($actualTitle));
+            $article->setSlug($slug);
+
+            // $user = $this->userRepo->findOneBy(['email' => $security->getUser()->getUsername()]);
+            // $article->setUser($user);
+
+            $photo = $form['photo']->getData();
+            if($photo){
+                $originalFileName = pathinfo($photo->getClientOriginalName(), PATHINFO_FILENAME);
+                $newUniqueFileName = $originalFileName."-".uniqid().'.'.$photo->guessExtension();
+                $photo->move($this->getParameter('uploaded-images'), $newUniqueFileName);
+                $article->setPhoto($newUniqueFileName);
+            }
 
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($annonce);
+            $entityManager->persist($article);
             $entityManager->flush();
 
-            return $this->redirectToRoute("admin_home");
+            return $this->redirectToRoute("admin_dashboard");
         }
-        return $this->render("admin/create_article.html.twig", [
-            "articleForm" => $formArticle->createView()     
+        return $this->render("admin/page/create_article.html.twig", [
+            "articleForm" => $form->createView()     
         ]);
     }
 
 
 
-    public function deleteArticle($idArticle)
-    {
-        $article = $this->articleRepo->findOneById($idArticle);
-        $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->remove($article);
-        $entityManager->flush();
-        return $this->redirectToRoute("admin_home");
-    }
+    // public function updateArticle(Request $request, $id)
+    // {
+    //     $slugger = new AsciiSlugger();
+    //     $article = $this->articleRepo->find($id);
+    //     $form = $this->createForm(ArticleFormType::class, $article);
+    //     $form->handleRequest($request);
+    //     if($form->isSubmitted()){
+    //         $article = $form->getData();
+
+    //         $actualTitle = $article->getTitle();
+    //         $slug = strtolower($slugger->slug($actualTitle));
+    //         $article->setSlug($slug);
+           
+    //         $user = $this->userRepo->findOneBy(['email' => $security->getUser()->getUsername()]);
+    //         $article->setUser($user);
+
+
+    //         $photo = $form['photo']->getData();
+    //         if($photo){
+    //             $originalFileName = pathinfo($photo->getClientOriginalName(), PATHINFO_FILENAME);
+    //             $newUniqueFileName = $originalFileName."-".uniqid().'.'.$photo->guessExtension();
+    //             $photo->move($this->getParameter('uploaded-images'), $newUniqueFileName);
+    //             $article->setPhoto($newUniqueFileName);
+    //         }
+
+    //         $entityManager = $this->getDoctrine()->getManager();
+    //         $entityManager->persist($article);
+    //         $entityManager->flush();
+
+    //         return $this->redirectToRoute("admin_home");
+    //     }
+
+    //     return $this->render('admin/page/update_article.html.twig', ["articleForm" => $form->createView()]);
+
+    // }
+
+
+
+
+    // public function deleteArticle($idArticle)
+    // {
+    //     $article = $this->articleRepo->findOneById($idArticle);
+    //     $entityManager = $this->getDoctrine()->getManager();
+    //     $entityManager->remove($article);
+    //     $entityManager->flush();
+    //     return $this->redirectToRoute("admin_home");
+    // }
 
    
 }

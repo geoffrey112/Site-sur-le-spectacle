@@ -1,3 +1,110 @@
-h2{
-    color:red;
+body{
+    background-color:rgba(212, 245, 255);
+    font-family: 'Merriweather', serif;
 }
+
+.fondBlanc{
+    width:100%;
+    background-color:white;
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
+.contenuSidebar{
+    height:300px;
+    width:55%;
+    margin:0 auto;
+    background-color:white;
+}
+
+.carousel-control-next-icon{
+    background-color:rgba(0, 0, 0, 0.700);
+}
+
+.carousel-control-prev-icon{
+    background-color:rgba(0, 0, 0, 0.700);
+}
+
+
+/* Effet précédent/suivant */
+.carousel-control-prev:hover{
+    background: linear-gradient(to left, rgba(99, 178, 207, 0.700), rgba(0, 128, 255, 0.700));
+    transition-duration: 1.5s;
+}
+
+.carousel-control-next:hover{
+    background: linear-gradient(to right, rgba(99, 178, 207, 0.700), rgba(0, 128, 255, 0.700));
+    transition-duration: 1.5s;
+}
+
+/* CONTENU HOME */
+.contentText{
+    border: 1px solid black;
+    border-radius: 30px 30px 30px 30px;
+    background-color: rgb(223, 247, 253)
+}
+
+.contentText h1{
+    font-size:25px;
+    font-weight: bold;
+    text-align:center;
+    background-color:#63B2CF;
+    border-radius: 15px 15px 15px 15px;
+    width:70%;
+    height:60px;
+    margin:0 auto;
+    color:white;
+    padding-top:15px;
+}
+
+.contentText p{
+    line-height:40px;
+}
+
+.contentRea{
+    border:1px solid black;
+    border-radius: 15px 15px 15px 15px;
+    width:60%;
+    background-color: rgb(223, 247, 253)
+}
+
+.contentRea h1{
+    font-size:25px;
+    font-weight: bold;
+    text-align:center;
+    background-color:#63B2CF;
+    border-radius: 15px 15px 15px 15px;
+    width:80%;
+    height:60px;
+    margin:0 auto;
+    color:white;
+    padding-top:15px;
+}
+
+.form{
+    font-size:25px;
+    font-weight: bold;
+    text-align:center;
+    background-color:#63B2CF;
+    color: white;
+    height:60px;
+    margin-top: 100px;
+}
+
+.bas{
+    background-color:#63B2CF;
+    height:60px;
+}
+
+.contact *{
+    text-align: center;
+    margin: auto;
+}
+
+.contact{   
+    background: linear-gradient(135deg, rgb(125, 199, 226) 20%, #EDFBFF 50%, rgb(125, 199, 226) 80%);
+}
+
+
+}
+

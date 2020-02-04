@@ -1,11 +1,119 @@
 {% extends "base.html.twig" %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset ("styles/home.style.css")}}">
+	<link rel="stylesheet" href="{{ asset ("styles/home.style.css")}}">
 {% endblock %}
 
 {% block body %}
 
-    <h2>(Page home)</h2>
+	{# CAROUSEL #}
+	<div class="fondBlanc">
+		<div id="carouselExampleControls" class="carousel slide contenuSidebar" data-ride="carousel">
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<div class="container">
+						<div class="row">
+							<div class="col-4">
+								<img height="300" src="{{ asset ("medias/Soirée Chuchotée.jpg")}}">
+							</div>
+							<div class="col-4">
+								<img height="300" src="{{ asset ("medias/affiche.jpg")}}">
+							</div>
+							<div class="col-4">
+								<img height="300" src="{{ asset ("medias/Chris2.bmp")}}">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<div class="container">
+						<div class="row">
+							<div class="col-5">
+								<img height="300" src="{{ asset ("medias/The End (détail).jpg")}}">
+							</div>
+							<div class="col-7">
+								<img height="300" src="{{ asset ("medias/57 EME RUE BROOKLIN.jpg")}}">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+	</div>
+
+	   {% include "components/ResponsiveNav.html.twig" %}
+
+    {# SIDEBAR + PRESENTATION #}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3">
+                {% include "components/sidebar.html.twig" %}
+            </div>
+            <div class="col-9">
+                <div class="container contentText mt-4">
+                    <h1 class="mt-5 mb-4">Présentation</h1>
+                    <p class="mb-5">Après un enseignement prodigué au Conservatoire d’Art Dramatique de Nancy et des études d’histoire de l’Art, 
+                    Patrick Day a été formé à l’écriture de scénario et la mise-en-scène. L’éventail de ses activités lui a permis de 
+                    couvrir un panel d’activités assez large : cours d’actorat (sensibilité Actor’s studio) réalisation cinéma 
+                    (long métrage « Désordres » et Grand Prix du court- métrage avec « Ira-Dei ») plasticien (nombreuses expos de groupes) 
+                    metteur-en-scène (plusieurs spectacles vivants de théâtre, théâtre-dansé et comédie musicale) scénarios à la demande 
+                    en vidéo institutionnelle. Il poursuit ses différentes activités en mise-en-scène avec plusieurs troupes et partenaires 
+                    ainsi que ses travaux de plasticien (expos de peintures et sculptures).</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    {# REALISATIONS #}
+    <div class="container mt-5 contentRea">
+        <div class="row">
+            <h1 class="mt-4">Réalisations</h1>
+            <img class="mt-5 mb-4 mx-auto" src="{{ asset ("medias/PUELLA (2).jpg")}}">
+        </div>
+    </div>
+
+
+	<div class="form">
+		<h1>Contactez moi</h1>
+	</div>
+
+
+	<div class="container-fluid contact">
+		{{ form_start(contactForm) }}
+		<div class="form-group mt-5">
+			<div class="row">
+				<div class="col-2 mb-4">
+					{{ form_row(contactForm.email, {'attr': {class : "form-control"}, 'label' : "Adresse email"}) }}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-2 mb-4">
+					{{ form_row(contactForm.idee, {'attr': {class : "form-control"}, 'label' : "Votre idée"}) }}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-3 mb-4">
+					{{ form_row(contactForm.message, {'attr': {class : "form-control message"}, 'label' : "Votre message"}) }}
+				</div>
+			</div>
+			<div class="row mb-4">
+				{{ form_row(contactForm.envoyer, {'attr' : {class : "btn btn-primary "}}) }}
+			</div>
+		</div>
+		{{ form_end(contactForm) }}
+
+	</div>
+
+	<div class="bas"></div>
 
 {% endblock %}
+
