@@ -1,15 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-	
-{% endblock %}
-
-
-{% block title %}Log in!
+	<link rel="stylesheet" href="{{ asset ("styles/login.style.css")}}">
 {% endblock %}
 
 {% block body %}
-	<h1 class="mb-6">Je m'identifie</h1>
+	<h1>Je m'identifie</h1>
 	<div class="container form">
 		<form method="post">
 			{% if error %}
