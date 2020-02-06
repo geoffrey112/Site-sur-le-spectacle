@@ -91,7 +91,12 @@ class User
 
     public function getRole(): ?array
     {
-        return $this->role;
+        $role = $this->role ;
+        
+        // guarantee every user at least has ROLE_USER
+        $role [] = 'ROLE_ADMIN' ;
+    
+        return array_unique($role);
     }
 
     public function setRole(array $role): self
