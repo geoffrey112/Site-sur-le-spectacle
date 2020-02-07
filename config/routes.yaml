@@ -2,6 +2,11 @@
 #    path: /
 #    controller: App\Controller\DefaultController::index
 
+
+login:
+  path: /login
+  controller: App\Controller\SecurityController::login
+  
 home:
   path: /
   controller: App\Controller\HomeController::home
@@ -48,9 +53,9 @@ theatre:
 
 
 
-admin_dashboard:
-  path: /admin-dashboard
-  controller: App\Controller\AdminController::adminDashboard
+dashboard:
+  path: /dashboard
+  controller: App\Controller\AdminController::dashboardAction
 
 
 update_article:
@@ -66,6 +71,8 @@ delete_article:
 create_article:
   path: /admin/article/create
   controller: App\Controller\AdminController::createArticle
+
+
 
 
 
