@@ -37,7 +37,7 @@ body{
     transition-duration: 1.5s;
 }
 
-/* CONTENU HOME */
+/* CONTENU BODY */
 .contentText{
     border: 1px solid black;
     border-radius: 30px 30px 30px 30px;
@@ -77,4 +77,38 @@ body{
     margin:0 auto;
     color:white;
     padding-top:15px;
+}
+
+/* CONTENU CONTACTEZ MOI */
+.colorForm{
+    background-color:#EDFBFF;
+}
+
+.contact{
+    background-color:#63B2CF;
+    height:60px;
+    padding-top:10px;
+}
+
+.deco{
+    position:absolute;
+    width:0;
+    height:448px;
+    border-right:380px solid transparent;
+    border-top:448px solid rgba(212, 245, 255);
+}
+ 
+.deco2{
+    position:absolute;
+    right:0;
+    width:0;
+    border-left:380px solid transparent;
+    border-bottom:448px solid rgba(212, 245, 255);
+}
+
+.contact h1{
+    color:white;
+    text-align:center;
+    font-weight:bold;
+    font-size:25px;
 }
