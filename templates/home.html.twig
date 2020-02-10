@@ -54,10 +54,10 @@
     {# SIDEBAR + PRESENTATION #}
     <div class="container-fluid">
         <div class="row">
-            <div class="col-3">
+            <div class="col-md-3">
                 {% include "components/sidebar.html.twig" %}
             </div>
-            <div class="col-9">
+            <div class="col-md-9 col-sm-12">
                 <div class="container contentText mt-4">
                     <h1 class="mt-5 mb-4">Présentation</h1>
                     <p class="mb-5">Après un enseignement prodigué au Conservatoire d’Art Dramatique de Nancy et des études d’histoire de l’Art, 
@@ -72,48 +72,47 @@
         </div>
     </div>
     
-    
     {# REALISATIONS #}
     <div class="container mt-5 contentRea">
         <div class="row">
             <h1 class="mt-4">Réalisations</h1>
-            <img class="mt-5 mb-4 mx-auto" src="{{ asset ("medias/PUELLA (2).jpg")}}">
+            <img class="mt-5 mb-4 mx-auto col-9" src="{{ asset ("medias/PUELLA (2).jpg")}}">
         </div>
     </div>
 
+    {# Formulaire #}
+    <div class="colorForm">
+        <div class="contact mt-5">
+            <h1>Contactez moi</h1>
+        </div>
+        <div class="deco"></div>
+        <div class="deco2"></div>
+        <div class="container-fluid mt-5 ">
+            <div class="row justify-content-center">
+                <div class="col-sm-6">
+                    {{ form_start(contactForm) }}
+                    <div class="form-group text-center">
+                        <div class="mt-3 col-7 col-sm-9 col-md-8 col-lg-7 col-xl-6 mx-auto">
+                            {{ form_row(contactForm.email, {'attr': {class : "form-control"}, 'label' : "Adresse email"}) }}
+                        </div>
+                        <div class="mt-3 col-7 col-sm-9 col-md-8 col-lg-7 col-xl-6 mx-auto">
+                            {{ form_row(contactForm.idee, {'attr': {class : "form-control"}, 'label' : "Votre idée"}) }}
+                        </div>
+                        <div class="mt-3 col-12 mx-auto">
+                            {{ form_row(contactForm.message, {'attr': {class : "form-control message"}, 'label' : "Votre message"}) }}
+                        </div>    
+                        <div class="mt-3">
+                            {{ form_row(contactForm.envoyer, {'attr' : {class : "btn btn-primary"}}) }}
+                            
+                        </div>
+                    </div>
+                    {{ form_end(contactForm) }}
+                </div>
+            </div>
+        </div>
 
-	<div class="form">
-		<h1>Contactez moi</h1>
-	</div>
-
-
-	<div class="container-fluid contact">
-		{{ form_start(contactForm) }}
-		<div class="form-group mt-5">
-			<div class="row">
-				<div class="col-2 mb-4">
-					{{ form_row(contactForm.email, {'attr': {class : "form-control"}, 'label' : "Adresse email"}) }}
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-2 mb-4">
-					{{ form_row(contactForm.idee, {'attr': {class : "form-control"}, 'label' : "Votre idée"}) }}
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-3 mb-4">
-					{{ form_row(contactForm.message, {'attr': {class : "form-control message"}, 'label' : "Votre message"}) }}
-				</div>
-			</div>
-			<div class="row mb-4">
-				{{ form_row(contactForm.envoyer, {'attr' : {class : "btn btn-primary "}}) }}
-			</div>
-		</div>
-		{{ form_end(contactForm) }}
-
-	</div>
-
-	<div class="bas"></div>
+        <div class="contact mt-5"></div>
+        
+    </div>
 
 {% endblock %}
-

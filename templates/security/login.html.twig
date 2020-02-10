@@ -2,44 +2,60 @@
 
 {% block stylesheets %}
 	<link rel="stylesheet" href="{{ asset ("styles/login.style.css")}}">
+		<style>
+		body {
+			background-image: url("{{asset('images/fond_noir.png')}}");
+			background-size: cover;
+		}
+	</style>
 {% endblock %}
 
 {% block body %}
 	<h1>Je m'identifie</h1>
-	<div class="container form">
-		<form method="post">
-			{% if error %}
-				<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-			{% endif %}
 
-			{% if app.user %}
-				<div class="mb-3 mb-4">
-					Vous êtes connecté en tant que
-					{{ app.user.username }},
-					<a href="{{ path('app_logout') }}">Se déconnecter</a>
+	<div class="row">
+		<div class="col-3">
+			{% include "components/sidebar.html.twig" %}
+		</div>
+
+		<div class="container form">
+			<form method="post">
+				{% if error %}
+					<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+				{% endif %}
+
+				{% if app.user %}
+					<div class="mb-3 mb-4">
+						Vous êtes connecté en tant que
+						{{ app.user.username }},
+						<a href="{{ path('app_logout') }}">Se déconnecter</a>
+					</div>
+				{% endif %}
+				<div class="row">
+					<div class="col-4 mb-4 mt-4">
+						<label for="inputEmail">Email</label>
+						<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
+					</div>
 				</div>
-			{% endif %}
-			<div class="row">
-				<div class="col-12 mb-4">
-					<label for="inputEmail">Email</label>
-					<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
-				</div>
 
-
-				<div class="col-12 mb-4">
-					<label for="inputPassword">Mot de passe</label>
-					<input type="password" name="password" id="inputPassword" class="form-control" required>
+				<div class="row">
+					<div class="col-4 mb-4">
+						<label for="inputPassword">Mot de passe</label>
+						<input type="password" name="password" id="inputPassword" class="form-control" required>
+					</div>
 				</div>
 
 				<div class="col-12 mb-2">
 					<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-                </div>
-                
-				<div class="col-12">
+				</div>
+
+				<div class="col-12 mb-4">
 					<button class="btn btn-lg btn-primary" type="submit">Valider</button>
 				</div>
 
 			</div>
 		</form>
 	</div>
+</div>
+
 {% endblock %}
