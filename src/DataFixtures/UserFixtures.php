@@ -28,6 +28,7 @@ class UserFixtures extends Fixture
 
         $user = new User();
         $user->setEmail("admin@webforce.com")
+        ->setUsername("Patrick")
         ->setPassword($this->passwordEncoder->encodePassword($user, "webforce"))
         ->setRoles(['ROLE_ADMIN']);
         $manager->persist($user);

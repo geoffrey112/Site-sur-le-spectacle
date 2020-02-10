@@ -23,8 +23,12 @@
         <a class="pages" href="{{asset ("/theatre")}}">Théatre</a>
         <div class="dropdown-divider"></div>
         <a class="pages" href="{{asset ("/peinture")}}">Peintures</a>
-        <div class="dropdown-divider"></div>
+          <div class="dropdown-divider"></div>
         <a class="pages" href="{{asset ("/dashboard")}}">Dashboard</a>
+        <div class="dropdown-divider"></div>
+        {% if app.user %}
+        <a class="pages" href="{{ path('logout') }}" >Se déconnecter</a>
+        {% endif %}
 
     </div>
     <div class="sidebarBottom p-1">
