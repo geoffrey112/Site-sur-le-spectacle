@@ -54,6 +54,9 @@ class AdminController extends AbstractController
             $actualTitle = $article->getTitle();
             $slug = strtolower($slugger->slug($actualTitle));
             $article->setSlug($slug);
+            if (!$article->getId()){
+                $article->setCreatedAt(new \DateTime());
+            }
 
             // $user = $this->userRepo->findOneBy(['email' => $security->getUser()->getUsername()]);
             // $article->setUser($user);
@@ -70,10 +73,10 @@ class AdminController extends AbstractController
             $entityManager->persist($article);
             $entityManager->flush();
 
-            return $this->redirectToRoute("admin_dashboard");
+            return $this->redirectToRoute("dashboard");
         }
-        return $this->render("admin/page/create_article.html.twig", [
-            "articleForm" => $form->createView()     
+        return $this->render("dashboard/dashboard_create_article.html.twig", [
+            "articleForm" => $form->createView()
         ]);
     }
 

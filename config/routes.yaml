@@ -69,7 +69,7 @@ delete_article:
 
 
 create_article:
-  path: /admin/article/create
+  path: /dashboard/create_article
   controller: App\Controller\AdminController::createArticle
 
 
