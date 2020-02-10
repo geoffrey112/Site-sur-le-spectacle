@@ -7,14 +7,46 @@
 }
 
 video{
-    width: 800px;
+    width: 900px;
     margin-bottom: 60px;
 }
 
 .vid{
-    padding-left: 125px;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .form{
-    margin-left: 290px;
+    margin: 0 auto;
+    text-align: center;
 }
+
+.card{
+    margin: 0 auto;
+}
+
+
+
+@media all and (min-width: 1050px) and (max-width: 1350px) {
+    video{
+        width: 700px
+    }
+}
+
+
+@media all and (min-width: 550px) and (max-width: 1049px) {
+   video{
+       width: 500px;
+   }
+
+}
+
+
+
+@media (max-width: 549px) {
+    video{
+        width: 300px;
+    }
+
+}
+
