@@ -23,6 +23,8 @@ video{
 
 .card{
     margin: 0 auto;
+    visibility: hidden;
+    
 }
 
 
@@ -49,4 +51,9 @@ video{
     }
 
 }
+
+
+
+
+
 
