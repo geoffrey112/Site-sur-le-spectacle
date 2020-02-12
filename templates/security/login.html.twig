@@ -2,60 +2,59 @@
 
 {% block stylesheets %}
 	<link rel="stylesheet" href="{{ asset ("styles/login.style.css")}}">
-		<style>
-		body {
-			background-image: url("{{asset('images/fond_noir.png')}}");
-			background-size: cover;
-		}
-	</style>
 {% endblock %}
 
+{% block title %}Inscription{% endblock %}
+
 {% block body %}
-	<h1>Je m'identifie</h1>
 
-	<div class="row">
-		<div class="col-3">
-			{% include "components/sidebar.html.twig" %}
-		</div>
+	{# VOIR HEADER#}
 
-		<div class="container form">
-			<form method="post">
-				{% if error %}
-					<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-				{% endif %}
-
-				{% if app.user %}
-					<div class="mb-3 mb-4">
-						Vous êtes connecté en tant que
-						{{ app.user.username }},
-						<a href="{{ path('app_logout') }}">Se déconnecter</a>
-					</div>
-				{% endif %}
-				<div class="row">
-					<div class="col-4 mb-4 mt-4">
-						<label for="inputEmail">Email</label>
-						<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="col-4 mb-4">
-						<label for="inputPassword">Mot de passe</label>
-						<input type="password" name="password" id="inputPassword" class="form-control" required>
-					</div>
-				</div>
-
-				<div class="col-12 mb-2">
-					<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-				</div>
-
-				<div class="col-12 mb-4">
-					<button class="btn btn-lg btn-primary" type="submit">Valider</button>
-				</div>
-
+	{% include "components/ResponsiveNav.html.twig" %}
+	<div class="container-fluid">
+		<h2>Je m'identifie</h2> 
+		<div class="row">
+			<div class="col-md-4 col-lg-3">
+				{% include "components/sidebar.html.twig" %}
 			</div>
-		</form>
+
+			<div class="form mx-auto mt-4 mb-5 col-8 col-sm-8 col-md-6">
+				<form method="post">
+					{% if error %}
+						<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+					{% endif %}
+
+					{% if app.user %}
+						<div class="mb-3 mb-4">
+							Vous êtes connecté en tant que
+							{{ app.user.username }},
+							<a href="{{ path('app_logout') }}">Se déconnecter</a>
+						</div>
+					{% endif %}
+					<div class="row">
+						<div class="col-7 col-sm-6 col-md-5 col-lg-4 col-xl-4 mb-4 mt-4 mx-auto">
+							<label for="inputEmail">Email</label>
+							<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-7 col-sm-6 col-md-5 col-lg-4 col-xl-4 mb-4 mx-auto">
+							<label for="inputPassword">Mot de passe</label>
+							<input type="password" name="password" id="inputPassword" class="form-control" required>
+						</div>
+					</div>
+
+					<div class="col-12 mb-2">
+						<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+					</div>
+
+					<div class="col-12 mb-4 mx-auto">
+						<button class="btn btn-lg btn-primary" type="submit">Valider</button>
+					</div>
+				</form>
+			</div>
+		</div>
 	</div>
-</div>
 
 {% endblock %}
