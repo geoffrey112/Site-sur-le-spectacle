@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Article;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 /**
  * @method Article|null find($id, $lockMode = null, $lockVersion = null)
@@ -47,4 +48,28 @@ class ArticleRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findPaginatedArticles($page){
+        // Create our query
+        $query = $this->createQueryBuilder('p')
+            ->orderBy('p.date_begin', 'DESC')
+            ->getQuery();
+
+        // No need to manually get get the result ($query->getResult())
+        $pages = $this->paginate($query, $page);
+        return $pages;
+
+    }
+
+    private function paginate($dql, $page = 1, $limit = 10)
+    {
+        $paginator = new Paginator($dql);
+        $paginator->getQuery()
+            ->setFirstResult($limit * ($page - 1)) // Offset
+            ->setMaxResults($limit); // Limit
+
+        return $paginator;
+    }
+
+  
 }
