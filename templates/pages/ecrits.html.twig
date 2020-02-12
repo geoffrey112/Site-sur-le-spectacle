@@ -21,42 +21,70 @@
 			{% include "components/sidebar.html.twig" %}
 		</div>
 
-		<div class='container'>
+
+		<div class="container">
+			{# {% for article in articles %}
+				{% if category.name == 'ecrits' %} #}
 			<div class="row form">
-
-				{# {% for article in articles %}
-					{% if category.name == 'ecrits' %} #}
-				
-					<div class="card mr-5 mb-5 " style="width: 22rem;">
-						<div class="card-body">
-							<h5 class="card-title">Card title</h5>
-						</div>
-						<img src="{{asset('images/index.jpeg')}}" class="card-img-top" alt="...">
+				<div class="card mr-4 mb-5" style="width: 22rem;">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
 					</div>
-					<div class="card mr-5 mb-5 " style="width: 22rem;">
-						<div class="card-body">
-							<h5 class="card-title">Card title</h5>
-						</div>
-						<img src="{{asset('images/index.jpeg')}}" class="card-img-top" alt="...">
-					</div>		
-					<div class="card mr-5 mb-5 " style="width: 22rem;">
-						<div class="card-body">
-							<h5 class="card-title">Card title</h5>
-						</div>
-						<img src="{{asset('images/index.jpeg')}}" class="card-img-top" alt="...">
-					</div>	
-					<div class="card mr-5 mb-5 " style="width: 22rem;">
-						<div class="card-body">
-							<h5 class="card-title">Card title</h5>
-						</div>
-						<img src="{{asset('images/index.jpeg')}}" class="card-img-top" alt="...">
-					</div>		
+					<img src="{{asset('images/index.jpeg')}}" class="card-img-top" alt="...">
+				</div>
+				<div class="card mr-4 mb-5" style="width: 22rem;">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+					</div>
+					<img src="{{asset('images/index.jpeg')}}" class="card-img-top" alt="...">
+				</div>
+				<div class="card mr-4 mb-5" style="width: 22rem;">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+					</div>
+					<img src="{{asset('images/index.jpeg')}}" class="card-img-top" alt="...">
+				</div>
+				<div class="card mr-4 mb-5" style="width: 22rem;">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+					</div>
+					<img src="{{asset('images/index.jpeg')}}" class="card-img-top" alt="...">
+				</div>
+				<div class="card mr-4 mb-5" style="width: 22rem;">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+					</div>
+					<img src="{{asset('images/index.jpeg')}}" class="card-img-top" alt="...">
+				</div>
+				<div class="card mr-4 mb-5" style="width: 22rem;">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+					</div>
+					<img src="{{asset('images/index.jpeg')}}" class="card-img-top" alt="...">
+				</div>
 
-				{# {% endif %}
-					{% endfor %} #}
-					
+		</div>
+
+		{# {% endif %}
+			{% endfor %} #}
+
+		<div class="row justify-content-around">
+			<div class="col-3">
+				{% if from > 1 %}
+					<a  href="{{path('adaptation_cinema', {page : page - 1}) }}" class="btn btn-primary">Précédent</a>
+				{% endif %}
+			</div>
+			<div class="col-3">
+				{% if not pageFuture is empty %}
+					<a href="{{ path('adaptation_cinema', {page : page + 1}) }}" class="btn btn-primary">Suivant</a>
+				{% endif %}
 			</div>
 		</div>
+		
 	</div>
 
+{% endblock %}
+
+{% block javascripts %}
+	<script src="{{asset('scripts/ecrits.js')}}" ></script>
 {% endblock %}

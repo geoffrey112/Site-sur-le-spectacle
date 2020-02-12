@@ -2,12 +2,18 @@
 
 namespace App\Controller;
 
-
+use Symfony\Component\Security\Core\Security;
 
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+
+use App\Entity\Article;
+use App\Entity\Category;
+
+use App\Repository\ArticleRepository;
+use App\Repository\CategoryRepository;
 
 use Symfony\Component\Mailer\MailerInterface ;
 use Symfony\Component\Mime\Email;
@@ -16,57 +22,259 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\AsciiSlugger;
 use Symfony\Component\HttpFoundation\Request;
+use Knp\Component\Pager\PaginatorInterface;
 
 
 class HomeController extends AbstractController
 {
 
     private $mailer ;
+    private $articleRepo;
+    private $categoryRepo;
 
-    public function __construct ( MailerInterface $mailer )
+    public function __construct ( MailerInterface $mailer, ArticleRepository $articleRepository, CategoryRepository $categoryRepository )
     {
         $this -> mailer = $mailer ;
+        $this->articleRepo = $articleRepository;
+        $this->categoryRepo = $categoryRepository;
     }
 
-    public function cinema()
-    {
-        return $this->render('pages/cinema.html.twig');
+    public function cinema(){
+        $page = $request->query->get("page");
+        if ($page == 0) {
+            $page++;
+        }
+
+        $articles = $this->articleRepo->findAll();
+
+        $pageFuture = $paginator->paginate(
+            $articles,
+            ($request->query->getInt('page', 1)+1),
+            6
+        );
+
+        $articles = $this->articleRepo->findPaginatedAnnonces($page);   
+
+        return $this->render('pages/cinema.html.twig', [
+            "article" => $articles, 
+            "page" => $page,
+            "pageFuture" => $pageFuture]);
     }
 
-    public function adaptationCinema(){
-        return $this->render('pages/adaptation_cinema.html.twig');
+
+
+    public function adaptationCinema(Request $request, Security $security, PaginatorInterface $paginator){
+        $page = $request->query->get("page");
+        if ($page == 0) {
+            $page++;
+        }
+
+        $articles = $this->articleRepo->findAll();
+
+        $pageFuture = $paginator->paginate(
+            $articles,
+            ($request->query->getInt('page', 1)+1),
+            6
+        );
+
+        $articles = $this->articleRepo->findPaginatedArticles($page);   
+
+        return $this->render('pages/adaptation_cinema.html.twig', [
+            "article" => $articles, 
+            "from" => $page,
+            "pageFuture" => $pageFuture]);
     }
+    
+
 
     public function bandeDessinee(){
-        return $this->render('pages/bande_dessinee.html.twig');
+        $page = $request->query->get("page");
+        if ($page == 0) {
+            $page++;
+        }
+
+        $articles = $this->articleRepo->findAll();
+
+        $pageFuture = $paginator->paginate(
+            $articles,
+            ($request->query->getInt('page', 1)+1),
+            6
+        );
+
+        $articles = $this->articleRepo->findPaginatedArticles($page);   
+
+        return $this->render('pages/bande_dessinee.html.twig', [
+            "article" => $articles, 
+            "from" => $page,
+            "pageFuture" => $pageFuture]);
     }
+
+
 
     public function ecrits(){
-        return $this->render('pages/ecrits.html.twig');
+        $page = $request->query->get("page");
+        if ($page == 0) {
+            $page++;
+        }
+
+        $articles = $this->articleRepo->findAll();
+
+        $pageFuture = $paginator->paginate(
+            $articles,
+            ($request->query->getInt('page', 1)+1),
+            6
+        );
+
+        $articles = $this->articleRepo->findPaginatedArticles($page);   
+
+        return $this->render('pages/ecrits.html.twig', [
+            "article" => $articles, 
+            "from" => $page,
+            "pageFuture" => $pageFuture]);
     }
+
+
 
     public function enseignements(){
-        return $this->render('pages/enseignement.html.twig');
+        $page = $request->query->get("page");
+        if ($page == 0) {
+            $page++;
+        }
+
+        $articles = $this->articleRepo->findAll();
+
+        $pageFuture = $paginator->paginate(
+            $articles,
+            ($request->query->getInt('page', 1)+1),
+            6
+        );
+
+        $articles = $this->articleRepo->findPaginatedArticles($page);   
+
+        return $this->render('pages/enseignements.html.twig', [
+            "article" => $articles, 
+            "from" => $page,
+            "pageFuture" => $pageFuture]);
     }
+
+
 
     public function livresObjets(){
-        return $this->render('pages/livres-objets.html.twig');
+        $page = $request->query->get("page");
+        if ($page == 0) {
+            $page++;
+        }
+
+        $articles = $this->articleRepo->findAll();
+
+        $pageFuture = $paginator->paginate(
+            $articles,
+            ($request->query->getInt('page', 1)+1),
+            6
+        );
+
+        $articles = $this->articleRepo->findPaginatedArticles($page);   
+
+        return $this->render('pages/livres-objets.html.twig', [
+            "article" => $articles, 
+            "from" => $page,
+            "pageFuture" => $pageFuture]);
     }
+
+
 
     public function miseEnScene(){
-        return $this->render('pages/mise_en_scene.html.twig');
+        $page = $request->query->get("page");
+        if ($page == 0) {
+            $page++;
+        }
+
+        $articles = $this->articleRepo->findAll();
+
+        $pageFuture = $paginator->paginate(
+            $articles,
+            ($request->query->getInt('page', 1)+1),
+            6
+        );
+
+        $articles = $this->articleRepo->findPaginatedArticles($page);   
+
+        return $this->render('pages/mise_en_scene.html.twig', [
+            "article" => $articles, 
+            "from" => $page,
+            "pageFuture" => $pageFuture]);
     }
+
+
 
     public function peinture(){
-        return $this->render('pages/peinture.html.twig');
+        $page = $request->query->get("page");
+        if ($page == 0) {
+            $page++;
+        }
+
+        $articles = $this->articleRepo->findAll();
+
+        $pageFuture = $paginator->paginate(
+            $articles,
+            ($request->query->getInt('page', 1)+1),
+            6
+        );
+
+        $articles = $this->articleRepo->findPaginatedArticles($page);   
+
+        return $this->render('pages/peinture.html.twig', [
+            "article" => $articles, 
+            "from" => $page,
+            "pageFuture" => $pageFuture]);
     }
+
+
 
     public function sculptures(){
-        return $this->render('pages/sculptures.html.twig');
+        $page = $request->query->get("page");
+        if ($page == 0) {
+            $page++;
+        }
+
+        $articles = $this->articleRepo->findAll();
+
+        $pageFuture = $paginator->paginate(
+            $articles,
+            ($request->query->getInt('page', 1)+1),
+            6
+        );
+
+        $articles = $this->articleRepo->findPaginatedArticles($page);   
+
+        return $this->render('pages/sculptures.html.twig', [
+            "article" => $articles, 
+            "from" => $page,
+            "pageFuture" => $pageFuture]);
     }
 
+
+
     public function theatre(){
-        return $this->render('pages/theatre.html.twig');
+        $page = $request->query->get("page");
+        if ($page == 0) {
+            $page++;
+        }
+
+        $articles = $this->articleRepo->findAll();
+
+        $pageFuture = $paginator->paginate(
+            $articles,
+            ($request->query->getInt('page', 1)+1),
+            6
+        );
+
+        $articles = $this->articleRepo->findPaginatedArticles($page);   
+
+        return $this->render('pages/theatre.html.twig', [
+            "article" => $articles, 
+            "from" => $page,
+            "pageFuture" => $pageFuture]);
     }
 
 
@@ -93,14 +301,6 @@ class HomeController extends AbstractController
                 ->setBody($contact['message']);
 
             $mailer->send($message);
-
-            // $message = (new Email())
-            //     ->from($contact['email'])
-            //     ->to('florian67@neuf.fr')
-            //     ->subject($contact['idee'])
-            //     ->text($contact['message']);
-
-            // $this->mailer->send($message);
 
             $this->addFlash('success', 'Votre message a bien été envoyé !');
     
