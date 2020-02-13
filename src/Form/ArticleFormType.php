@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Article;
 use App\Entity\Category;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -20,14 +21,13 @@ class ArticleFormType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('content')
-            ->add('created_at', DateTimeType::class)
+            ->add('content', TextareaType::class)
+            /*->add('created_at', DateTimeType::class)*/
             ->add('photo', FileType::class, ['mapped' => false, 'required' => false])
             ->add('category', EntityType::class, [
                 'class' => Category::class,
                 'choice_label' => 'name'
             ])
-            ->add('ajouter', SubmitType::class);
         ;
     }
 
