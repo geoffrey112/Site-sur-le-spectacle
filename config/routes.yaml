@@ -63,12 +63,12 @@ dashboard:
 
 
 update_article:
-  path: /admin/article/update
+  path: /dashboard/modifier/{id}
   controller: App\Controller\AdminController::updateArticle
 
 
 delete_article:
-  path: /admin/article/delete/{idArticle}
+  path: /dashboard/delete/{idArticle}
   controller: App\Controller\AdminController::deleteArticle
 
 
