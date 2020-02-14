@@ -1,58 +1,56 @@
-.title{
-    text-align: center;
-    color:#007FFF;
-    font-size:48px;
-    margin-bottom: 100px;
-    margin-top: 30px;
+.fondNoir{
+    background-image: url("../../images/BlackBackground.jpg");
+    background-size: 1200px;
 }
 
-video{
-    width: 900px;
-    margin-bottom: 60px;
-}
-
-.vid{
-    text-align: center;
-    margin: 0 auto;
-}
-
-.form{
-    margin: 0 auto;
-    text-align: center;
-}
-
-.card{
-    margin: 0 auto;
-    opacity: 0 
+h2{
+    font-size:36px;
+    background-color:#63B2CF;
+    height:70px;
+    width:400px;
+    border-radius:10px 10px 10px 10px;
+    padding-top:5px;
+    text-align:center;
+    margin-top:30px;
+    margin-bottom:50px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
+/* CONTENU PAGE */
+.titleImg{
+    border:2px solid black;
+    border-radius: 10px;
+    text-align:center;
+    background-color:white;
+    font-weight: bold;
+    height:50px;
+}
 
-@media all and (min-width: 1050px) and (max-width: 1350px) {
-    video{
-        width: 700px
+.titleImg p{
+    margin:10px auto;
+}
+
+.contenusPhoto{
+    background-color: #d3d3d3;
+    border-radius: 10px;
+    height:350px;
+}
+
+button{
+    background: linear-gradient(#9cd3ff, #53b2ff);
+    outline:none;
+    font-size:23px;
+    border-radius:10px;
+}
+
+
+
+@media screen and (max-width: 768px){
+
+    h2{
+        width:100%;
     }
-}
-
-
-@media all and (min-width: 550px) and (max-width: 1049px) {
-   video{
-       width: 500px;
-   }
 
 }
-
-
-
-@media (max-width: 549px) {
-    video{
-        width: 300px;
-    }
-
-}
-
-
-
-
-
-
