@@ -39,7 +39,7 @@ class HomeController extends AbstractController
         $this->categoryRepo = $categoryRepository;
     }
 
-    public function cinema(){
+    public function cinema(Request $request, Security $security, PaginatorInterface $paginator){
         $page = $request->query->get("page");
         if ($page == 0) {
             $page++;
@@ -53,11 +53,11 @@ class HomeController extends AbstractController
             6
         );
 
-        $articles = $this->articleRepo->findPaginatedAnnonces($page);   
+        $articles = $this->articleRepo->findPaginatedArticles($page);   
 
         return $this->render('pages/cinema.html.twig', [
             "article" => $articles, 
-            "page" => $page,
+            "from" => $page,
             "pageFuture" => $pageFuture]);
     }
 
@@ -87,7 +87,7 @@ class HomeController extends AbstractController
     
 
 
-    public function bandeDessinee(){
+    public function bandeDessinee(Request $request, Security $security, PaginatorInterface $paginator){
         $page = $request->query->get("page");
         if ($page == 0) {
             $page++;
@@ -111,7 +111,7 @@ class HomeController extends AbstractController
 
 
 
-    public function ecrits(){
+    public function ecrits(Request $request, Security $security, PaginatorInterface $paginator){
         $page = $request->query->get("page");
         if ($page == 0) {
             $page++;
@@ -135,7 +135,7 @@ class HomeController extends AbstractController
 
 
 
-    public function enseignements(){
+    public function enseignements(Request $request, Security $security, PaginatorInterface $paginator){
         $page = $request->query->get("page");
         if ($page == 0) {
             $page++;
@@ -159,7 +159,7 @@ class HomeController extends AbstractController
 
 
 
-    public function livresObjets(){
+    public function livresObjets(Request $request, Security $security, PaginatorInterface $paginator){
         $page = $request->query->get("page");
         if ($page == 0) {
             $page++;
@@ -183,7 +183,7 @@ class HomeController extends AbstractController
 
 
 
-    public function miseEnScene(){
+    public function miseEnScene(Request $request, Security $security, PaginatorInterface $paginator){
         $page = $request->query->get("page");
         if ($page == 0) {
             $page++;
@@ -207,7 +207,7 @@ class HomeController extends AbstractController
 
 
 
-    public function peinture(){
+    public function peinture(Request $request, Security $security, PaginatorInterface $paginator){
         $page = $request->query->get("page");
         if ($page == 0) {
             $page++;
@@ -231,7 +231,7 @@ class HomeController extends AbstractController
 
 
 
-    public function sculptures(){
+    public function sculptures(Request $request, Security $security, PaginatorInterface $paginator){
         $page = $request->query->get("page");
         if ($page == 0) {
             $page++;
@@ -255,7 +255,7 @@ class HomeController extends AbstractController
 
 
 
-    public function theatre(){
+    public function theatre(Request $request, Security $security, PaginatorInterface $paginator){
         $page = $request->query->get("page");
         if ($page == 0) {
             $page++;
