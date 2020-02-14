@@ -7,5 +7,14 @@
 }
 
 .form{
-    margin-left: 150px;
+    margin: 0 auto;
+    text-align: center;
 }
+
+.card{
+    margin: 0 auto;
+    opacity: 0;
+}
+
+
+ 
