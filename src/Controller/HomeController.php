@@ -151,7 +151,7 @@ class HomeController extends AbstractController
 
         $articles = $this->articleRepo->findPaginatedArticles($page);   
 
-        return $this->render('pages/enseignements.html.twig', [
+        return $this->render('pages/enseignement.html.twig', [
             "article" => $articles, 
             "from" => $page,
             "pageFuture" => $pageFuture]);
