@@ -1,68 +1,63 @@
 {% extends "base.html.twig" %}
 
 {% block stylesheets %}
-	<link rel="stylesheet" href="{{asset('styles/cinema.style.css')}}">
-	<style>
-		body {
-			background-image: url("{{asset('images/fond_noir.png')}}");
-			background-size: cover;
-		}
-	</style>
+	<link rel="stylesheet" href="{{ asset ('styles/cinema.style.css')}}">
 {% endblock %}
+
+{% block title %}Adaptation cinéma{% endblock %}
 
 {% block body %}
 
-	{% include "components/ResponsiveNav.html.twig" %}
+	<div class="fondNoir">
+		{% include "components/ResponsiveNav.html.twig" %}
 
-	<h1 class="title">Adaptation-Cinéma</h1>
-
-	<div class="row">
-		<div class="col-3">
-			{% include "components/sidebar.html.twig" %}
+		<div class="container-fluid">
+			<div class="row">
+				<h2>Adaptation-Cinéma</h2>
+			</div>
 		</div>
-		<div class="col-9 vid">
-			<video controls>
 
-				<source src="{{asset('videos/WBZE.mp4')}}" type="video/mp4">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-3">
+					{% include "components/sidebar.html.twig" %}
+				</div>
 
-			</video>
-		</div>
-	</div>
-
-
-	<div class="container">
-		{# {% for article in articles %}
-			{% if category.name == 'adaptation-cinema' %} #}
-		<div class="row form">
-				<div class="card mr-5 mb-5" style="width: 22rem;">
-					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
+				<div class="col-md-9">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="mx-auto col-8 col-sm-6 col-md-6 col-lg-5 mb-5">
+								<div class="titleImg">
+									<p>Titre de l'image</p>
+								</div>
+								<div class="contenusPhoto">
+									<div class="row">								
+										<img class="mx-auto mt-4" src="{{ asset ("medias/couverture_de_lapin.jpg")}}" height="300">
+									</div>
+								</div>
+								<div class="row justify-content-center mt-4">
+									<button>Voir l'article</button>
+								</div>
+							</div>
+							
+							<div class="mx-auto col-8 col-sm-6 col-lg-5 col-md-6 mb-5 mx-auto">
+								<div class="titleImg">
+									<p>Titre de l'image</p>	
+								</div>
+								<div class="contenusPhoto">
+									<div class="row">
+										<img class="mt-4 mx-auto" src="{{ asset ("medias/lapin-2.jpg")}}" height="300">
+									</div>
+								</div>
+								<div class="row justify-content-center mt-4">
+									<button>Voir l'article</button>
+								</div>
+							</div>
+						</div>
 					</div>
-					<img src="{{asset('images/index.jpeg')}}" class="card-img-top" alt="...">
 				</div>
-				<div class="card mr-5 mb-5" style="width: 22rem;">
-					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-					</div>
-					<img src="{{asset('images/index.jpeg')}}" class="card-img-top" alt="...">
-				</div>
-				<div class="card mr-5 mb-5" style="width: 22rem;">
-					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-					</div>
-					<img src="{{asset('images/index.jpeg')}}" class="card-img-top" alt="...">
-				</div>
-				<div class="card mr-5 mb-5" style="width: 22rem;">
-					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-					</div>
-					<img src="{{asset('images/index.jpeg')}}" class="card-img-top" alt="...">
-				</div>
-			
 			</div>
 		</div>
 	</div>
-		{# {% endif %}
-			{% endfor %} #}
 
 {% endblock %}
