@@ -26,13 +26,13 @@
 				<div class="col-md-9">
 					<div class="container-fluid">
 						<div class="row">
-							<div class="mx-auto col-8 col-sm-6 col-md-6 col-lg-5 mb-5">
+							<div class="carte mx-auto col-8 col-sm-6 col-md-6 col-lg-5 mb-5">
 								<div class="titleImg">
 									<p>Titre de l'image</p>
 								</div>
 								<div class="contenusPhoto">
 									<div class="row">								
-										<img class="mx-auto mt-4" src="{{ asset ("medias/couverture_de_lapin.jpg")}}" height="300">
+										<img class="mx-auto mt-4" src="{{ asset ("medias/adaptation-cinema/couverture_de_lapin.jpg")}}" height="300">
 									</div>
 								</div>
 								<div class="row justify-content-center mt-4">
@@ -40,13 +40,13 @@
 								</div>
 							</div>
 							
-							<div class="mx-auto col-8 col-sm-6 col-lg-5 col-md-6 mb-5 mx-auto">
+							<div class="carte mx-auto col-8 col-sm-6 col-lg-5 col-md-6 mb-5 mx-auto">
 								<div class="titleImg">
 									<p>Titre de l'image</p>	
 								</div>
 								<div class="contenusPhoto">
 									<div class="row">
-										<img class="mt-4 mx-auto" src="{{ asset ("medias/lapin-2.jpg")}}" height="300">
+										<img class="mt-4 mx-auto" src="{{ asset ("medias/adaptation-cinema/lapin-2.jpg")}}" height="300">
 									</div>
 								</div>
 								<div class="row justify-content-center mt-4">
@@ -60,22 +60,21 @@
 		</div>
 	</div>
   
-		{#<div class="row justify-content-around">
-			<div class="col-3">
-				{% if from > 1 %}
-					<a  href="{{path('adaptation_cinema', {page : page - 1}) }}" class="btn btn-primary">Précédent</a>
-				{% endif %}
-			</div>
-			<div class="col-3">
-				{% if not pageFuture is empty %}
-					<a href="{{ path('adaptation_cinema', {page : page + 1}) }}" class="btn btn-primary">Suivant</a>
-				{% endif %}
-			</div>
+	{#<div class="row justify-content-around">
+		<div class="col-3">
+			{% if from > 1 %}
+				<a  href="{{path('adaptation_cinema', {page : page - 1}) }}" class="btn btn-primary">Précédent</a>
+			{% endif %}
+		</div>
+		<div class="col-3">
+			{% if not pageFuture is empty %}
+				<a href="{{ path('adaptation_cinema', {page : page + 1}) }}" class="btn btn-primary">Suivant</a>
+			{% endif %}
 		</div>
 	</div>#}
 
 {% endblock %}
 
-{#{% block javascripts %}
-<script src="{{asset('scripts/adaptation-cinema.js')}}"></script>
-{% endblock %}#}
+{% block javascripts %}
+	<script src="{{asset('scripts/effet.js')}}"></script>
+{% endblock %}
