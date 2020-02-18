@@ -77,6 +77,10 @@ create_article:
   controller: App\Controller\AdminController::createArticle
 
 
+  
+category:
+  path: /category/{name}
+  controller: App\Controller\categoryController::categoryAction
 
 
 

@@ -11,7 +11,11 @@
 
 		<div class="container-fluid">
 			<div class="row">
-				<h2>Bande dessinée</h2>
+                {% for category in categories %}
+                    {% if continent.name == name %}
+				        <h2>{{category.name}}</h2>
+                    {% endif %}
+                {% endfor %}
 			</div>
 		</div>
 
@@ -25,7 +29,7 @@
 					<div class="container-fluid">
 						<div class="row">
 							{# {% for article in articles %}
-								{% if article.category.name == 'bande-dessinee' %} #}
+								{% if article.category.name == name %} #}
 									<div class="carte mx-auto col-8 col-sm-6 col-md-6 col-lg-5 mb-5">
 										<div class="titleImg">
 											{# <p>{{article.title}}</p> #}
@@ -49,12 +53,12 @@
 	<div class="row justify-content-around">
 		<div class="col-3">
 			{% if from > 1 %}
-				<a  href="{{path('adaptation_cinema', {page : page - 1}) }}" class="btn btn-primary">Précédent</a>
+				<a  href="{{path('category', {page : page - 1}) }}" class="btn btn-primary">Précédent</a>
 			{% endif %}
 		</div>
 		<div class="col-3">
 			{% if not pageFuture is empty %}
-				<a href="{{ path('adaptation_cinema', {page : page + 1}) }}" class="btn btn-primary">Suivant</a>
+				<a href="{{ path('category', {page : page + 1}) }}" class="btn btn-primary">Suivant</a>
 			{% endif %}
 		</div>
 	</div>
