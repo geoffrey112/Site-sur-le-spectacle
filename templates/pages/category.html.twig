@@ -12,7 +12,7 @@
 		<div class="container-fluid">
 			<div class="row">
                 {% for category in categories %}
-                    {% if continent.name == name %}
+                    {% if category.name == name %}
 				        <h2>{{category.name}}</h2>
                     {% endif %}
                 {% endfor %}
