@@ -24,105 +24,29 @@
 				<div class="col-md-9">
 					<div class="container-fluid">
 						<div class="row">
-							<div class="carte mx-auto col-8 col-sm-6 col-md-6 col-lg-5 mb-5">
-								<div class="titleImg">
-									<p>Titre de l'image</p>
-								</div>
-								<div class="contenusPhoto">
-									<div class="row">								
-										<img class="mx-auto mt-4" src="{{ asset ("medias/bande-dessinée/Bronsky.bmp")}}" height="300">
+							{# {% for article in articles %}
+								{% if article.category.name == 'bande-dessinee' %} #}
+									<div class="carte mx-auto col-8 col-sm-6 col-md-6 col-lg-5 mb-5">
+										<div class="titleImg">
+											{# <p>{{article.title}}</p> #}
+										</div>
+										<div class="contenusPhoto">
+											<div class="row">
+												{# <img class="mx-auto mt-4" src="{{article.photo}}" height="300"> #}
+											</div>
+										</div>
 									</div>
-								</div>
-								<div class="row justify-content-center mt-4">
-									<button>Voir l'article</button>
-								</div>
-							</div>
-							
-							<div class="carte col-8 col-sm-6 col-lg-5 col-md-6 mb-5 mx-auto">
-								<div class="titleImg">
-									<p>Titre de l'image</p>	
-								</div>
-								<div class="contenusPhoto">
-									<div class="row">
-										<img class="mt-4 mx-auto" src="{{ asset ("medias/bande-dessinée/Chris.bmp")}}" height="300">
-									</div>
-								</div>
-								<div class="row justify-content-center mt-4">
-									<button>Voir l'article</button>
-								</div>
-							</div>
+								{# {% endif %}
+							{% endfor %} #}
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-
-		<div class="container-fluid">
-			<div class="row justify-content-center">
-
-				{# MODIFIER COL-MD 2 PAR 2 #}
-
-				<div class="carte col-xl-3 col-md-4">
-					<div class="titleImg">
-						<p>Titre de l'image</p>
-					</div>
-					<div class="contenusPhoto">
-						<div class="row">								
-							<img class="mx-auto mt-4" src="{{ asset ("medias/bande-dessinée/Alex.bmp")}}" height="300" width="200">
-						</div>
-					</div>
-					<div class="row justify-content-center mt-4 mb-4">
-						<button>Voir l'article</button>
-					</div>
-				</div>
-
-				<div class="carte col-xl-3 col-md-4">
-					<div class="titleImg">
-						<p>Titre de l'image</p>
-					</div>
-					<div class="contenusPhoto">
-						<div class="row">								
-							{# <img class="mx-auto mt-4" src="{{ asset ("medias/bande-dessinée/Bronsky.bmp")}}" height="300"> #}
-						</div>
-					</div>
-					<div class="row justify-content-center mt-4 mb-4">
-						<button>Voir l'article</button>
-					</div>
-				</div>
-
-				<div class="carte col-xl-3 col-md-4">
-					<div class="titleImg">
-						<p>Titre de l'image</p>
-					</div>
-					<div class="contenusPhoto">
-						<div class="row">								
-							{# <img class="mx-auto mt-4" src="{{ asset ("medias/bande-dessinée/Bronsky.bmp")}}" height="300"> #}
-						</div>
-					</div>
-					<div class="row justify-content-center mt-4 mb-4">
-						<button>Voir l'article</button>
-					</div>
-				</div>
-
-				<div class="carte col-xl-3 col-md-4">
-					<div class="titleImg">
-						<p>Titre de l'image</p>
-					</div>
-					<div class="contenusPhoto">
-						<div class="row">								
-							{# <img class="mx-auto mt-4" src="{{ asset ("medias/bande-dessinée/Bronsky.bmp")}}" height="300"> #}
-						</div>
-					</div>
-					<div class="row justify-content-center mt-4 mb-4">
-						<button>Voir l'article</button>
-					</div>
-				</div>
-
 			</div>
 		</div>
 	</div>
 
-	{# <div class="row justify-content-around">
+
+	<div class="row justify-content-around">
 		<div class="col-3">
 			{% if from > 1 %}
 				<a  href="{{path('adaptation_cinema', {page : page - 1}) }}" class="btn btn-primary">Précédent</a>
@@ -133,10 +57,10 @@
 				<a href="{{ path('adaptation_cinema', {page : page + 1}) }}" class="btn btn-primary">Suivant</a>
 			{% endif %}
 		</div>
-	</div> #}
+	</div>
 
 {% endblock %}
 
 {% block javascripts %}
-	<script src="{{asset('scripts/effet.js')}}" ></script>
+	<script src="{{asset('scripts/effet.js')}}"></script>
 {% endblock %}
