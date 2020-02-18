@@ -1,8 +1,10 @@
 {% extends "base.html.twig" %}
 
 {% block stylesheets %}
-	<link rel="stylesheet" href="{{asset('styles/cinema.style.css')}}">
+	<link rel="stylesheet" href="{{ asset ('styles/bande_dessinee.style.css')}}">
 {% endblock %}
+
+{% block title %}Bande dessinée{% endblock %}
 
 {% block body %}
 
@@ -15,40 +17,34 @@
 			</div>
 		</div>
 
-		<div class="container-fluid">
+		<div class="container">
 			<div class="row">
-				<div class="col-md-3">
+				<div class="col-md-3 ml-n3">
 					{% include "components/sidebar.html.twig" %}
 				</div>
 
 				<div class="col-md-9">
-					<div class="container-fluid">
+					<div class="container mb-5">
 						<div class="row">
-							<div class="carte mx-auto col-8 col-sm-6 col-md-6 col-lg-5 mb-5">
+							<div class="carte mx-auto col-8 col-sm-6 col-md-6 col-lg-5">
 								<div class="titleImg">
 									<p>Titre de l'image</p>
 								</div>
 								<div class="contenusPhoto">
-									<div class="row">								
-										<img class="mx-auto mt-4" src="{{ asset ("medias/bande-dessinée/Bronsky.bmp")}}" height="300">
+									<div class="row">
+
 									</div>
-								</div>
-								<div class="row justify-content-center mt-4">
-									<button>Voir l'article</button>
 								</div>
 							</div>
 							
-							<div class="carte col-8 col-sm-6 col-lg-5 col-md-6 mb-5 mx-auto">
+							<div class="carte mx-auto col-8 col-sm-6 col-lg-5 col-md-6">
 								<div class="titleImg">
 									<p>Titre de l'image</p>	
 								</div>
 								<div class="contenusPhoto">
 									<div class="row">
-										<img class="mt-4 mx-auto" src="{{ asset ("medias/bande-dessinée/Chris.bmp")}}" height="300">
+
 									</div>
-								</div>
-								<div class="row justify-content-center mt-4">
-									<button>Voir l'article</button>
 								</div>
 							</div>
 						</div>
@@ -57,86 +53,76 @@
 			</div>
 		</div>
 
-		<div class="container-fluid">
-			<div class="row justify-content-center">
+		<div class="container">
+				<div class="row justify-content-center">
 
-				{# MODIFIER COL-MD 2 PAR 2 #}
+					{# width fix card + response card bas lg 2 par 2 #}
 
-				<div class="carte col-xl-3 col-md-4">
-					<div class="titleImg">
-						<p>Titre de l'image</p>
-					</div>
-					<div class="contenusPhoto">
-						<div class="row">								
-							<img class="mx-auto mt-4" src="{{ asset ("medias/bande-dessinée/Alex.bmp")}}" height="300" width="200">
+					<div class="carte col-xl-3 col-lg-4 col-md-4 mb-5">
+						<div class="titleImg">
+							<p>Titre de l'image</p>
+						</div>
+						<div class="contenusPhoto">
+							<div class="row">			
+
+							</div>
 						</div>
 					</div>
-					<div class="row justify-content-center mt-4 mb-4">
-						<button>Voir l'article</button>
-					</div>
-				</div>
 
-				<div class="carte col-xl-3 col-md-4">
-					<div class="titleImg">
-						<p>Titre de l'image</p>
-					</div>
-					<div class="contenusPhoto">
-						<div class="row">								
-							{# <img class="mx-auto mt-4" src="{{ asset ("medias/bande-dessinée/Bronsky.bmp")}}" height="300"> #}
+					<div class="carte col-xl-3 col-lg-4 col-md-4">
+						<div class="titleImg">
+							<p>Titre de l'image</p>
+						</div>
+						<div class="contenusPhoto">
+							<div class="row">		
+
+							</div>
 						</div>
 					</div>
-					<div class="row justify-content-center mt-4 mb-4">
-						<button>Voir l'article</button>
-					</div>
-				</div>
 
-				<div class="carte col-xl-3 col-md-4">
-					<div class="titleImg">
-						<p>Titre de l'image</p>
-					</div>
-					<div class="contenusPhoto">
-						<div class="row">								
-							{# <img class="mx-auto mt-4" src="{{ asset ("medias/bande-dessinée/Bronsky.bmp")}}" height="300"> #}
+					<div class="carte col-xl-3 col-lg-4 col-md-4">
+						<div class="titleImg">
+							<p>Titre de l'image</p>
+						</div>
+						<div class="contenusPhoto">
+							<div class="row">
+
+							</div>
 						</div>
 					</div>
-					<div class="row justify-content-center mt-4 mb-4">
-						<button>Voir l'article</button>
-					</div>
-				</div>
 
-				<div class="carte col-xl-3 col-md-4">
-					<div class="titleImg">
-						<p>Titre de l'image</p>
-					</div>
-					<div class="contenusPhoto">
-						<div class="row">								
-							{# <img class="mx-auto mt-4" src="{{ asset ("medias/bande-dessinée/Bronsky.bmp")}}" height="300"> #}
+					<div class="carte col-xl-3 col-lg-4 col-md-4 mb-5">
+						<div class="titleImg">
+							<p>Titre de l'image</p>
+						</div>
+						<div class="contenusPhoto">
+							<div class="row">
+
+							</div>
 						</div>
 					</div>
-					<div class="row justify-content-center mt-4 mb-4">
-						<button>Voir l'article</button>
-					</div>
-				</div>
 
+				</div>
 			</div>
 		</div>
-	</div>
+  
+		{#<div class="row justify-content-around">
+			<div class="col-3">
+				{% if from > 1 %}
+					<a  href="{{path('adaptation_cinema', {page : page - 1}) }}" class="btn btn-primary">Précédent</a>
+				{% endif %}
+			</div>
+			<div class="col-3">
+				{% if not pageFuture is empty %}
+					<a href="{{ path('adaptation_cinema', {page : page + 1}) }}" class="btn btn-primary">Suivant</a>
+				{% endif %}
+			</div>
+		</div>#}
 
-	{# <div class="row justify-content-around">
-		<div class="col-3">
-			{% if from > 1 %}
-				<a  href="{{path('adaptation_cinema', {page : page - 1}) }}" class="btn btn-primary">Précédent</a>
-			{% endif %}
-		</div>
-		<div class="col-3">
-			{% if not pageFuture is empty %}
-				<a href="{{ path('adaptation_cinema', {page : page + 1}) }}" class="btn btn-primary">Suivant</a>
-			{% endif %}
-		</div>
-	</div> #}
+	</div>
 
 {% endblock %}
 
 {% block javascripts %}
-	<script src="{{asset('scripts/effet.js')}}" ></script>
+	<script src="{{asset('scripts/effet.js')}}"></script>
 {% endblock %}
