@@ -55,7 +55,7 @@ class categoryController extends AbstractController
 
         $articles = $this->articleRepo->findPaginatedArticles($page);   
 
-        return $this->render('pages/theatre.html.twig', [
+        return $this->render('pages/category.html.twig', [
             "article" => $articles, 
             "from" => $page,
             "pageFuture" => $pageFuture]);
