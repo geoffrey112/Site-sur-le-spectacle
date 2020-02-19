@@ -11,6 +11,7 @@ use App\Repository\UserRepository;
 
 use App\Form\CategoryFormType;
 use App\Form\ArticleFormType;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 
 use Symfony\Component\Security\Core\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
