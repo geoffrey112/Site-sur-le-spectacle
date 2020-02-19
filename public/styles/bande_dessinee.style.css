@@ -1,6 +1,7 @@
 .fondNoir{
     background-image: url("../../images/BlackBackground.jpg");
-    background-size: 1200px;
+    background-size: 1400px;
+    background-attachment: fixed;
 }
 
 h2{
