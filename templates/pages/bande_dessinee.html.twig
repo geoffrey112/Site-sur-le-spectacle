@@ -47,6 +47,20 @@
 									</div>
 								</div>
 							</div>
+							{# {% for article in articles %}
+								{% if article.category.name == 'bande-dessinee' %} #}
+									{#<div class="carte mx-auto col-8 col-sm-6 col-md-6 col-lg-5 mb-5">#}
+										{#<div class="titleImg">#}
+											{# <p>{{article.title}}</p> #}
+										{#</div>#}
+										{#<div class="contenusPhoto">#}
+											{#<div class="row">#}
+												{# <img class="mx-auto mt-4" src="{{article.photo}}" height="300"> #}
+											{#</div>#}
+										{#</div>#}
+									{#</div>#}
+								{# {% endif %}
+							{% endfor %} #}
 						</div>
 					</div>
 				</div>
@@ -55,8 +69,6 @@
 
 		<div class="container">
 				<div class="row justify-content-center">
-
-					{# width fix card + response card bas lg 2 par 2 #}
 
 					<div class="carte col-xl-3 col-lg-4 col-md-4 mb-5">
 						<div class="titleImg">
@@ -118,11 +130,24 @@
 				{% endif %}
 			</div>
 		</div>#}
+    
+	</div>
 
+	<div class="row justify-content-around">
+		<div class="col-3">
+			{% if from > 1 %}
+				<a  href="{{path('adaptation_cinema', {page : page - 1}) }}" class="btn btn-primary">Précédent</a>
+			{% endif %}
+		</div>
+		<div class="col-3">
+			{% if not pageFuture is empty %}
+				<a href="{{ path('adaptation_cinema', {page : page + 1}) }}" class="btn btn-primary">Suivant</a>
+			{% endif %}
+		</div>
 	</div>
 
 {% endblock %}
 
 {% block javascripts %}
-	<script src="{{asset('scripts/effet.js')}}"></script>
+  <script src="{{asset('scripts/effet.js')}}"></script>
 {% endblock %}

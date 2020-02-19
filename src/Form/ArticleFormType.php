@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Article;
 use App\Entity\Category;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -21,7 +22,12 @@ class ArticleFormType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('content', TextareaType::class)
+            ->add('content', CKEditorType::class, [
+                'config' => [
+                    "toolbar" => "full",
+                    "required" => true
+                ]
+            ])
             /*->add('created_at', DateTimeType::class)*/
             ->add('photo', FileType::class, ['mapped' => false, 'required' => false])
             ->add('category', EntityType::class, [
