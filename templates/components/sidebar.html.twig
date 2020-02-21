@@ -6,29 +6,11 @@
         <div class="sidebarElement pt-1 pb-1">
             <a class="retour" href="{{ asset ("/")}}">Accueil</a>
             <div class="dropdown-divider"></div>
-            <a class="pages" href="{{asset ("/adaptation-cinema")}}">Adaptation cinéma</a>
-            <div class="dropdown-divider"></div>
             <a class="pages" href="{{asset ("/bande-dessinee")}}">Bande dessinée</a>
-            <div class="dropdown-divider"></div>
-            <a class="pages" href="{{asset ("/cinema")}}">Photo cinéma</a>
-            <div class="dropdown-divider"></div>
-            <a class="pages" href="{{asset ("/ecrits")}}">Ecrits</a>
-            <div class="dropdown-divider"></div>
-            <a class="pages" href="{{asset ("/enseignements")}}">Enseignement</a>
-            <div class="dropdown-divider"></div>
-            <a class="pages" href="{{asset ("/livres-objets")}}">Livres-Objets</a>
-            <div class="dropdown-divider"></div>
-            <a class="pages" href="{{asset ("/mise-en-scene")}}">Mise-en-scène</a>
-            <div class="dropdown-divider"></div>
-            <a class="pages" href="{{asset ("/sculptures")}}">Sculptures</a>
-            <div class="dropdown-divider"></div>
-            <a class="pages" href="{{asset ("/theatre")}}">Théatre</a>
-            <div class="dropdown-divider"></div>
-            <a class="pages" href="{{asset ("/peinture")}}">Peintures</a>
             <div class="dropdown-divider"></div>
             <a class="pages" href="{{asset ("/dashboard")}}">Dashboard</a>
             {% if app.user %}
-            <div class="dropdown-divider"></div>
+                <div class="dropdown-divider"></div>
                 <a class="pages" href="{{ path('logout') }}" >Se déconnecter</a>
             {% endif %}
         </div>

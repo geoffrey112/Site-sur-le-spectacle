@@ -115,6 +115,7 @@
         },
         "files": [
             "config/packages/fos_ckeditor.yaml"
+            "./config/packages/fos_ckeditor.yaml"
         ]
     },
     "fzaninotto/faker": {
