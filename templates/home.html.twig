@@ -55,7 +55,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-3">
-                {% include "components/sidebar.html.twig" %}
+                {{ render(controller(
+                    'App\\Controller\\SidebarController::home'))
+                }}
             </div>
             <div class="col-md-9 col-sm-12">
                 <div class="container contentText mt-4">
