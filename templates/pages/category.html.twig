@@ -1,8 +1,10 @@
 {% extends "base.html.twig" %}
 
 {% block stylesheets %}
-	<link rel="stylesheet" href="{{asset('styles/cinema.style.css')}}">
+	<link rel="stylesheet" href="{{ asset ('styles/bande_dessinee.style.css')}}">
 {% endblock %}
+
+{% block title %}Bande dessinée{% endblock %}
 
 {% block body %}
 
@@ -19,27 +21,48 @@
 			</div>
 		</div>
 
-		<div class="container-fluid">
+		<div class="container">
 			<div class="row">
-				<div class="col-md-3">
+				<div class="col-md-3 ml-n3">
 					{% include "components/sidebar.html.twig" %}
 				</div>
 
 				<div class="col-md-9">
-					<div class="container-fluid">
+					<div class="container mb-5">
 						<div class="row">
+							<div class="carte mx-auto col-8 col-sm-6 col-md-6 col-lg-5 mb-5">
+								<div class="titleImg">
+									<p>Titre de l'image</p>
+								</div>
+								<div class="contenusPhoto">
+									<div class="row">
+
+									</div>
+								</div>
+							</div>
+							
+							<div class="carte mx-auto col-8 col-sm-6 col-lg-5 col-md-6 mb-5">
+								<div class="titleImg">
+									<p>Titre de l'image</p>	
+								</div>
+								<div class="contenusPhoto">
+									<div class="row">
+
+									</div>
+								</div>
+							</div>
 							{# {% for article in articles %}
 								{% if article.category.name == name %} #}
 									<div class="carte mx-auto col-8 col-sm-6 col-md-6 col-lg-5 mb-5">
 										<div class="titleImg">
 											{# <p>{{article.title}}</p> #}
-										</div>
-										<div class="contenusPhoto">
-											<div class="row">
+										{#</div>#}
+										{#<div class="contenusPhoto">#}
+											{#<div class="row">#}
 												{# <img class="mx-auto mt-4" src="{{article.photo}}" height="300"> #}
-											</div>
-										</div>
-									</div>
+											{#</div>#}
+										{#</div>#}
+									{#</div>#}
 								{# {% endif %}
 							{% endfor %} #}
 						</div>
@@ -47,8 +70,78 @@
 				</div>
 			</div>
 		</div>
-	</div>
 
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-4 col-md-5 col-sm-6 col-8 mb-5 mx-auto">
+					<div class="titleImg">
+						<p>Titre de l'image</p>
+					</div>
+					<div class="contenusPhoto">
+						<div class="row">			
+
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xl-4 col-md-5 col-sm-6 col-8 mb-5 mx-auto">
+					<div class="titleImg">
+						<p>Titre de l'image</p>
+					</div>
+					<div class="contenusPhoto">
+						<div class="row">			
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-4 col-md-5 col-sm-6 col-8 mb-5 mx-auto">
+					<div class="titleImg">
+						<p>Titre de l'image</p>
+					</div>
+					<div class="contenusPhoto">
+						<div class="row">			
+
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xl-4 col-md-5 col-sm-6 col-8 mb-5 mx-auto">
+					<div class="titleImg">
+						<p>Titre de l'image</p>
+					</div>
+					<div class="contenusPhoto">
+						<div class="row">			
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+			
+
+
+  
+		{#<div class="row justify-content-around">
+			<div class="col-3">
+				{% if from > 1 %}
+					<a  href="{{path('adaptation_cinema', {page : page - 1}) }}" class="btn btn-primary">Précédent</a>
+				{% endif %}
+			</div>
+			<div class="col-3">
+				{% if not pageFuture is empty %}
+					<a href="{{ path('adaptation_cinema', {page : page + 1}) }}" class="btn btn-primary">Suivant</a>
+				{% endif %}
+			</div>
+		</div>#}
+    
+	</div>
 
 	<div class="row justify-content-around">
 		<div class="col-3">

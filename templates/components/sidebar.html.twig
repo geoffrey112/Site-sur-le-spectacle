@@ -1,4 +1,4 @@
-<div class="contentSidebar mt-4">
+<div class="contentSidebar mt-4 pl-n5 ml-n2">
     <div class="sidebarTop p-1">
         <p>Mes réalisations</p>
     </div>
@@ -12,7 +12,7 @@
             {% endfor %}
             <a class="pages" href="{{asset ("/dashboard")}}">Dashboard</a>
             {% if app.user %}
-            <div class="dropdown-divider"></div>
+                <div class="dropdown-divider"></div>
                 <a class="pages" href="{{ path('logout') }}" >Se déconnecter</a>
             {% endif %}
         </div>
