@@ -42,8 +42,6 @@ class HomeController extends AbstractController
 
     public function home(Request $request, \Swift_Mailer $mailer){
 
-        $categories = $this->categoryRepo->findAll();
-
         $form = $this->createFormBuilder() 
             ->add('email', EmailType::class)
             ->add('idee', TextType::class)
@@ -69,7 +67,7 @@ class HomeController extends AbstractController
     
         }
     
-        return $this->render('home.html.twig', ['contactForm' => $form->createView(), 'category' => $categories]);
+        return $this->render('home.html.twig', ['contactForm' => $form->createView()]);
     }
        
 }

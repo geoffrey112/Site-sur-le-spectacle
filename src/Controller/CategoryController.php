@@ -17,7 +17,7 @@ use Symfony\Component\String\Slugger\AsciiSlugger;
 use Symfony\Component\HttpFoundation\Request;
 use Knp\Component\Pager\PaginatorInterface;
 
-class categoryController extends AbstractController
+class CategoryController extends AbstractController
 {
     private $articleRepo;
     private $categoryRepo;
@@ -28,18 +28,8 @@ class categoryController extends AbstractController
         $this->categoryRepo = $categoryRepository;
     }
 
-    public function categoryAction($name) {
+    public function categoryAction($name, Request $request, Security $security, PaginatorInterface $paginator) {
 
-        $categories = $this->categoryRepository->findOneBy(["name" => $name]);
-        $articles = $this->countryRepository->findAll();
-
-        return $this->render('pages/category.html.twig', ["article" => $articles, "name" => $name, "category" => $categories]);
-
-    }
-
-    
-
-    public function category(Request $request, Security $security, PaginatorInterface $paginator){
         $page = $request->query->get("page");
         if ($page == 0) {
             $page++;
@@ -53,10 +43,14 @@ class categoryController extends AbstractController
             6
         );
 
-        $articles = $this->articleRepo->findPaginatedArticles($page);   
+        $articles = $this->articleRepo->findPaginatedArticles($page); 
+        $categories = $this->categoryRepo->findOneBy(["name" => $name]);
+        $articles = $this->articleRepo->findAll();  
 
         return $this->render('pages/category.html.twig', [
-            "article" => $articles, 
+            "articles" => $articles, 
+            "categories" => $categories,
+            "name" => $name,
             "from" => $page,
             "pageFuture" => $pageFuture]);
     }
