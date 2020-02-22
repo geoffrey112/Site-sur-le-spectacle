@@ -2,6 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
+
+use App\Repository\CategoryRepository;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -9,6 +13,13 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
 {
+
+    private $categoryRepo;
+
+    public function __construct ( CategoryRepository $categoryRepository )
+    {
+        $this->categoryRepo = $categoryRepository;
+    }
     /**
      * @Route("/login", name="app_login")
      */
@@ -18,12 +29,14 @@ class SecurityController extends AbstractController
         //     return $this->redirectToRoute('target_path');
         // }
 
+        $categories = $this->categoryRepo->findAll();
+
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
+        return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error, 'categories' => $categories]);
     }
 
     /**
