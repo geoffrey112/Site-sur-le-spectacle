@@ -19,11 +19,6 @@ a:hover{
     min-height: 100vh;
 }
 
-.top-bar{
-    background-color: #3a3a3a;
-    height: 50px;
-}
-
 #imageModifier {
     width: 35px;
     height: 35px;
@@ -31,4 +26,48 @@ a:hover{
 #imageSupprimer{
     width: 35px;
     height: 35px;
+}
+
+.sideBar{
+    width:200px;
+}
+
+.navBar{
+    background-color: #5393b7;
+    height:100px;
+}
+
+
+nav a:hover{
+    text-decoration: none;
+}
+
+.test{
+    margin-top:32px;
+}
+
+
+@media (max-width: 768px){
+
+    .sideBar{
+        display:none;
+    }
+
+    .contenuArticle{
+        padding-right:0px;
+    }
+
+}
+
+@media (min-width: 768px){
+
+    .contenuArticle{
+        padding-left:0; 
+        margin-left:-30px;
+    }
+
+    .navBar{
+        display:none;
+    }
+
 }
