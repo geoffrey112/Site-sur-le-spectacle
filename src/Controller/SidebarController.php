@@ -22,11 +22,17 @@ class SidebarController extends AbstractController
         $this->categoryRepo = $categoryRepository;
     }
 
-    public function home(Request $request){
+    public function sidebarAction(Request $request){
 
         $categories = $this->categoryRepo->findAll();
     
         return $this->render('components/sidebar.html.twig', ['categories' => $categories]);
+    }
+
+    public function navbarAction(Request $request){
+
+        $categories = $this->categoryRepo->findAll();
+    
         return $this->render('components/ResponsiveNav.html.twig', ['categories' => $categories]);
     }
 
