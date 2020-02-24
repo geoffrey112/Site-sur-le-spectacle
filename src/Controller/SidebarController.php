@@ -27,6 +27,7 @@ class SidebarController extends AbstractController
         $categories = $this->categoryRepo->findAll();
     
         return $this->render('components/sidebar.html.twig', ['categories' => $categories]);
+        return $this->render('components/ResponsiveNav.html.twig', ['categories' => $categories]);
     }
 
 }
