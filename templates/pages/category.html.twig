@@ -13,14 +13,18 @@
 
 		<div class="container-fluid">
 			<div class="row">
-				<h2>Bande dessinée</h2>
+                    {% if categories.name == name %}
+				        <h2>{{categories.name}}</h2>
+                    {% endif %}
 			</div>
 		</div>
 
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3 ml-n3">
-					{% include "components/sidebar.html.twig" %}
+					{{ render(controller(
+                    'App\\Controller\\SidebarController::home'))
+                	}}
 				</div>
 
 				<div class="col-md-9">
@@ -142,12 +146,12 @@
 	<div class="row justify-content-around">
 		<div class="col-3">
 			{% if from > 1 %}
-				<a  href="{{path('adaptation_cinema', {page : page - 1}) }}" class="btn btn-primary">Précédent</a>
+				<a  href="{{path('category', {page : page - 1}) }}" class="btn btn-primary">Précédent</a>
 			{% endif %}
 		</div>
 		<div class="col-3">
 			{% if not pageFuture is empty %}
-				<a href="{{ path('adaptation_cinema', {page : page + 1}) }}" class="btn btn-primary">Suivant</a>
+				<a href="{{ path('category', {page : page + 1}) }}" class="btn btn-primary">Suivant</a>
 			{% endif %}
 		</div>
 	</div>
@@ -155,5 +159,5 @@
 {% endblock %}
 
 {% block javascripts %}
-  <script src="{{asset('scripts/effet.js')}}"></script>
+	<script src="{{asset('scripts/effet.js')}}"></script>
 {% endblock %}

@@ -76,7 +76,13 @@ create_article:
   path: /dashboard/create_article
   controller: App\Controller\AdminController::createArticle
 
-
+sidebar:
+  path: /sidebar
+  controller: App\Controller\SidebarController::home
+  
+category:
+  path: /category/{name}
+  controller: App\Controller\CategoryController::categoryAction
 
 
 

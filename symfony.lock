@@ -114,6 +114,7 @@
             "ref": "8eb1cd0962ded6a6d6e1e5a9b6d3e888f9f94ff6"
         },
         "files": [
+            "config/packages/fos_ckeditor.yaml"
             "./config/packages/fos_ckeditor.yaml"
         ]
     },
@@ -142,7 +143,7 @@
         "version": "2.2.3"
     },
     "php": {
-        "version": "7.3"
+        "version": "7.4"
     },
     "phpdocumentor/reflection-common": {
         "version": "2.0.0"
