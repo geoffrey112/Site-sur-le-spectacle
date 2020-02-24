@@ -71,3 +71,17 @@ nav a:hover{
     }
 
 }
+
+@media (max-width: 576px){
+
+    .navBar{
+        font-size:15px;
+    }
+
+}
+
+
+/* Creation article */
+.contenuForm{
+    background-color: #5392b78a;
+}
