@@ -2,31 +2,31 @@
 
 {% block body %}
 
-<div class="container">
+    <div class="container-fluid p-0">
+        {{ form_start(articleForm) }}
+            <div class="row justify-content-center">
+                <div class="col-lg-10 col-sm-11 col-12 p-5 contenuForm">
+                    <div class="mb-3">
+                        {{ form_row(articleForm.title, {'attr': {'class': 'form-control', 'placeholder': 'Titre de l\'article'},  'label': 'Titre de l\'article'}) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form_row(articleForm.content, {'attr': {'class': 'form-control', 'placeholder': 'Contenu de l\'article'},  'label': 'Contenu de l\'article'}) }}
+                    </div>
+                    {#<div class="col-sm-8 col-md-8 col-lg-8">
+                        {{ form_row(articleForm.created_at, {'attr': {'class': 'form-control', 'placeholder': 'Date de parution'},  'label': 'Date de parution'}) }}
+                    </div>#}
+                    <div class="row">
+                        <div class="col-md-6 mb-3 text-nowrap">
+                            {{ form_row(articleForm.photo, {'attr': {'class': 'form-control-file', 'placeholder' : ' Inserez votre image'}, 'label_attr': {'class': 'mr-3'}, 'label': 'Image de l\'article'}) }}    
+                        </div>
+                        <div class="col-md-6 mb-5 text-nowrap">
+                            {{ form_row(articleForm.category, {'attr': {'class': 'form-control'}, 'label': 'Choisir la catégorie'}) }}
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-info btn-block">Créer l'article</button>
+                </div>
+            </div>
+        {{ form_end(articleForm) }}
+    </div>
 
-{{ form_start(articleForm) }}
-
-    <div class="col-sm-8 col-md-8 col-lg-8">
-        {{ form_row(articleForm.title, {'attr': {'class': 'form-control', 'placeholder': 'Titre de l\'article'},  'label': 'Titre de l\'article'}) }}
-    </div>
-    <div class="col-sm-8 col-md-8 col-lg-8">
-        {{ form_row(articleForm.content, {'attr': {'class': 'form-control', 'placeholder': 'Contenu de l\'article'},  'label': 'Contenu de l\'article'}) }}
-    </div>
-    {#<div class="col-sm-8 col-md-8 col-lg-8">
-        {{ form_row(articleForm.created_at, {'attr': {'class': 'form-control', 'placeholder': 'Date de parution'},  'label': 'Date de parution'}) }}
-    </div>#}
-    <div class="col-sm-8 col-md-8 col-lg-8">
-        {{ form_row(articleForm.photo, {'attr': {'class': 'form-control-file', 'placeholder' : ' Inserez votre image'}, 'label_attr': {'class': 'mr-3'}, 'label': 'Image de l\'article'})
-        }}
-    </div>
-    <div class="col-sm-3 col-md-3 col-lg-3">
-        {{ form_row(articleForm.category, {'attr': {'class': 'form-control'}, 'label': 'Choisir la catégorie'}) }}
-    </div>
-    <div class="row mt-4">
-        <div class="col-sm-8 col-md-8 col-lg-8"> <button type="submit" class="btn btn-info btn-block">Créer l'article</button></div>
-    </div>
-
-{{ form_end(articleForm) }}
-
-</div>
 {% endblock %}
