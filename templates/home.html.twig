@@ -49,14 +49,17 @@
 		</div>
 	</div>
 
-	{% include "components/ResponsiveNav.html.twig" %}
+	{#{% include "components/ResponsiveNav.html.twig" %}#}
+	     {{ render(controller(
+            'App\\Controller\\SidebarController::navbarAction'))
+        }}
 
     {# SIDEBAR + PRESENTATION #}
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-3">
                 {{ render(controller(
-                    'App\\Controller\\SidebarController::home'))
+                    'App\\Controller\\SidebarController::sidebarAction'))
                 }}
             </div>
             <div class="col-md-9 col-sm-12">

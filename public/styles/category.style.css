@@ -39,6 +39,10 @@ h2{
     height:350px;
 }
 
+.contenusPhoto p{
+    margin:10px auto;
+}
+
 button{
     background: linear-gradient(#9cd3ff, #53b2ff);
     outline:none;
