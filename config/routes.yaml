@@ -15,46 +15,6 @@ home:
   path: /
   controller: App\Controller\HomeController::home
 
-adaptation_cinema:
-  path: /adaptation-cinema
-  controller: App\Controller\HomeController::adaptationCinema
-
-bande_dessinee:
-  path: /bande-dessinee
-  controller: App\Controller\HomeController::bandeDessinee
-
-cinema:
-  path: /cinema
-  controller: App\Controller\HomeController::cinema
-
-ecrits:
-  path: /ecrits
-  controller: App\Controller\HomeController::ecrits
-
-enseignements:
-  path: /enseignements
-  controller: App\Controller\HomeController::enseignements
-
-livres_objets:
-  path: /livres-objets
-  controller: App\Controller\HomeController::livresObjets
-
-mise_en_scene:
-  path: /mise-en-scene
-  controller: App\Controller\HomeController::miseEnScene
-
-peinture:
-  path: /peinture
-  controller: App\Controller\HomeController::peinture
-
-sculptures:
-  path: /sculptures
-  controller: App\Controller\HomeController::sculptures
-
-theatre:
-  path: /theatre
-  controller: App\Controller\HomeController::theatre
-
 
 
 dashboard:

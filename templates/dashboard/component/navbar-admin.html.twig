@@ -1,14 +1,17 @@
 <nav class="upc navBar">
     <div class="container-fluid">
         <div class="row text-center text-nowrap">
-            <div class="col-4 marge"> 
+            <div class="col-3 marge p-0"> 
                 <a href="{{ path('home')}}">Page d'accueil</a>
             </div>
-            <div class="col-4 marge">
-                <a href="{{ path('logout')}}">Se déconnecter</a>
+            <div class="col-3 marge p-0">
+                <a href="{{ path('dashboard')}}">Mes articles</a>
             </div>
-            <div class="col-4 marge">
-                <a href="{{ asset("./dashboard/create_article")}}">Créer un article</a>
+            <div class="col-3 marge p-0">
+                <a href="{{ path("create_article")}}">Créer un article</a>
+            </div>
+            <div class="col-3 marge p-0">
+                <a href="{{ path('logout')}}">Se déconnecter</a>
             </div>
         </div>
     </div>
