@@ -53,16 +53,16 @@
 			</div>
 		</div>
 	
-{# 
-		<div class="row justify-content-around">
+
+		{# <div class="row justify-content-around">
 			<div class="col-3">
 				{% if from > 1 %}
-					<a  href="{{path('category', {name:categories.name}, {page: from - 1}) }}" class="btn btn-primary mb-4">Précédent</a>
+					<a  href="{{path('category', {page: from - 1}) }}" class="btn btn-primary mb-4">Précédent</a>
 				{% endif %}
 			</div>
 			<div class="col-3">
 				{% if not pageFuture is empty %}
-					<a href="{{ path('category', {name:categories.name}, {page: from + 1}) }}" class="btn btn-primary mb-4">Suivant</a>
+					<a href="{{ path('category', {page: from + 1}) }}" class="btn btn-primary mb-4">Suivant</a>
 				{% endif %}
 			</div>
 		</div> #}

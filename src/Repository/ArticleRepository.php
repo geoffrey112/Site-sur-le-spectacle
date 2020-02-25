@@ -52,7 +52,7 @@ class ArticleRepository extends ServiceEntityRepository
     public function findPaginatedArticles($page){
         // Create our query
         $query = $this->createQueryBuilder('p')
-            ->orderBy('p.date_begin', 'DESC')
+            ->orderBy('p.created_at', 'DESC')
             ->getQuery();
 
         // No need to manually get get the result ($query->getResult())

@@ -1,6 +1,6 @@
 .fondNoir{
     background-image: url("../../images/BlackBackground.jpg");
-    background-size: 1400px;
+    background-size: cover;
     background-attachment: fixed;
 }
 
