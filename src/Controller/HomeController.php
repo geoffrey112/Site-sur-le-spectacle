@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Contact;
+use App\Form\ContactFormType;
+use App\Notification;
 use Symfony\Component\Security\Core\Security;
 
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -40,34 +43,20 @@ class HomeController extends AbstractController
     }
 
 
-    public function home(Request $request, \Swift_Mailer $mailer){
+    public function home(Request $request, Notification $notification)
+    {
 
-        $form = $this->createFormBuilder() 
-            ->add('email', EmailType::class)
-            ->add('idee', TextType::class)
-            ->add('message', TextAreaType::class)
-            ->add('envoyer', SubmitType::class)
-            ->getForm();
-            
+        $contact = new Contact();
+        $form = $this->createForm(ContactFormType::class);
+
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-
-            $contact = $form->getData();
-
-            $message = (new \Swift_Message())
-                ->setFrom($contact['email'])
-                ->setTo('florian67@neuf.fr')
-                ->setSubject($contact['idee'])
-                ->setBody($contact['message']);
-
-            $mailer->send($message);
-
-            $this->addFlash('success', 'Votre message a bien été envoyé !');
-    
+        if ($form->isSubmitted() && $form->isValid()){
+            $notification->notify($contact);
+            $this->addFlash('success', 'Votre email est arrivé à bon port, Merci');
         }
-    
-        return $this->render('home.html.twig', ['contactForm' => $form->createView()]);
+
+         return $this->render('home.html.twig', ['contact' => $form->createView()]);
     }
-       
+
 }
