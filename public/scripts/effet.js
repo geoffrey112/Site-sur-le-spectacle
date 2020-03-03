@@ -1,20 +1,13 @@
 $(document).ready(function() {
     
-  $(window).scroll( function(){
-  
-      $('.carte').each( function(i){
-          
-          var bottom_of_object = $(this).offset().top + $(this).outerHeight();
-          var bottom_of_window = $(window).scrollTop() + $(window).height();
-          
-          if( bottom_of_window > bottom_of_object ){
-              
-              $(this).animate({opacity: 1},4000);
-                  
+    $(window).scroll(function(){
+        let scrolledFromTop = $(window).scrollTop() + $(window).height();
+
+        $(".carte").each(function(){
+          let distanceFromTop = $(this).offset().top;
+          if(scrolledFromTop >= distanceFromTop+100){
+            $(this).animate({right:0, opacity:1 },2000);
           }
-          
-      }); 
-  
-  });
-  
+        });
+    });
 });
