@@ -40,12 +40,11 @@ class CategoryController extends AbstractController
         $pageFuture = $paginator->paginate(
             $articles,
             ($request->query->getInt('page', 1)+1),
-            6
+            8
         );
 
         $articles = $this->articleRepo->findPaginatedArticles($page); 
-        $categories = $this->categoryRepo->findOneBy(["name" => $name]);
-        $articles = $this->articleRepo->findAll();  
+        $categories = $this->categoryRepo->findOneBy(["name" => $name]); 
 
         return $this->render('pages/category.html.twig', [
             "articles" => $articles, 

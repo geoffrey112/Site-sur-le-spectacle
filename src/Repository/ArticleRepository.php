@@ -61,7 +61,7 @@ class ArticleRepository extends ServiceEntityRepository
 
     }
 
-    private function paginate($dql, $page = 1, $limit = 10)
+    private function paginate($dql, $page = 1, $limit = 8)
     {
         $paginator = new Paginator($dql);
         $paginator->getQuery()
