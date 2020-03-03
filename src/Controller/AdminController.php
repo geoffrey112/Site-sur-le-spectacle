@@ -36,16 +36,17 @@ class AdminController extends AbstractController
     public function dashboardAction(){
 
         $article = $this->articleRepo->findAll();
-        $category = $this->categoryRepo->findAll();
+        $categories = $this->categoryRepo->findAll();
         $user = $this->userRepo->findAll();
          return $this->render("dashboard/dashboard_home.html.twig",
-             ["article" => $article, "category" => $category, "user" => $user ]);
+             ["article" => $article, "categories" => $categories, "user" => $user ]);
     }
 
 
     public function createArticle(Request $request, Security $security){
         $slugger = new AsciiSlugger();
         $article = new Article();
+        $categories = new Article();
         $form = $this->createForm(ArticleFormType::class, $article);
 
         $form->handleRequest($request);
