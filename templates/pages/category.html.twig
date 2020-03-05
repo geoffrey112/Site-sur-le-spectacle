@@ -4,7 +4,8 @@
 	<link rel="stylesheet" href="{{ asset ('styles/category.style.css')}}">
 {% endblock %}
 
-{% block title %}Bande dessinée{% endblock %}
+{% block title %}Bande dessinée
+{% endblock %}
 
 {% block body %}
 
@@ -15,9 +16,9 @@
 
 		<div class="container-fluid">
 			<div class="row">
-                    {% if categories.name == name %}
-				        <h2>{{categories.name}}</h2>
-                    {% endif %}
+				{% if categories.name == name %}
+					<h2>{{categories.name}}</h2>
+				{% endif %}
 			</div>
 		</div>
 
@@ -29,35 +30,95 @@
                 	}}
 				</div>
 
+				{% if categories.name == 'cinéma' %}
+					<div class="col-md-9">
+						<div class="container mb-5">
+							<div class="row vid">
+								<video controls width="700">
+									<source src="#" type="mp4">
+								</video>>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					{% for article in articles %}
+						{% if article.category.name == name %}
+						<div class="carte col-xl-3 col-md-4 col-sm-6 col-8 mb-5 mx-auto">
+							<div class="titleImg">
+								<p>{{article.title}}</p>
+							</div>
+							<div class="contenusPhoto">
+								<div class="row">
+									<img width="300" src="{{article.photo}}">
+								</div>
+							</div>
+						</div>
+						{% endif %}
+					{% endfor %}
+				</div>
+			</div>
+
+				{% elseif categories.name == 'mise en scene' %}
+					<div class="col-md-9">
+						<div class="container mb-5">
+							<div class="row vid">
+								<video controls width="700">
+									<source src="#" type="mp4">
+								</video>>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					{% for article in articles %}
+						{% if article.category.name == name %}
+						<div class="carte col-xl-3 col-md-4 col-sm-6 col-8 mb-5 mx-auto">
+							<div class="titleImg">
+								<p>{{article.title}}</p>
+							</div>
+							<div class="contenusPhoto">
+								<div class="row">
+									<img width="300" src="{{article.photo}}">
+								</div>
+							</div>
+						</div>
+						{% endif %}
+					{% endfor %}
+				</div>
+			</div>
+
+			{% else %}
 				<div class="col-md-9">
 					<div class="container mb-5">
 						<div class="row">
 							{% for article in articles %}
 								{% if article.category.name == name %}
-									<div class="carte mx-auto col-8 col-sm-6 col-md-6 col-lg-5 mb-5">
-										<div class="titleImg">
-											<p>{{article.title}}</p>
-										</div>
-										<div class="contenusPhoto">
-											<div class="row">
-												<img width="300" src="{{article.photo}}">
-												<p>{{article.createdAt | date("d/m/Y")}}</p>
-											</div>
+								<div class="carte mx-auto col-8 col-sm-6 col-md-6 col-lg-5 mb-5">
+									<div class="titleImg">
+										<p>{{article.title}}</p>
+									</div>
+									<div class="contenusPhoto">
+										<div class="row">
+											{{article.photo}}
 										</div>
 									</div>
+								</div>
 								{% endif %}
 							{% endfor %}
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	
+			{% endif %}
+
 
 		<div class="row justify-content-around">
 			<div class="col-3">
 				{% if from > 1 %}
-					<a  href="{{path('category', {name: categories.name, page: from - 1}) }}" class="btn btn-primary mb-4">Précédent</a>
+					<a href="{{path('category', {name: categories.name, page: from - 1}) }}" class="btn btn-primary mb-4">Précédent</a>
 				{% endif %}
 			</div>
 			<div class="col-3">
@@ -67,8 +128,8 @@
 			</div>
 		</div>
 
+		
 
-	</div>
 
 
 {% endblock %}
